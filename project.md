@@ -1,6 +1,6 @@
 # Validating Remote Sensing Products with In Situ Environmental Monitoring
 
-**Author:** Levi (Michael) Johnson
+**Author:** Levi Johnson & Claude
 **Affiliation:** Department of Soil and Crop Sciences, Colorado State University
 **Workshop:** Sage Grande — Summer of AI, July 20–28, 2026, UIC Electronic Visualization Laboratory, Chicago, IL
 

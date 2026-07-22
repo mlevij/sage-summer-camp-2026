@@ -1,11 +1,17 @@
 import json
 
-with open(r"C:\Users\mlevij\AppData\Local\Temp\claude\C--Users-mlevij\506a9e3e-2cc2-424c-bea3-00a1bc6d9347\scratchpad\cper_ssurgo_horizons.json") as f:
+# --- site config -- edit these for a new site ---
+SITE = "CLBJ"
+HORIZONS_PATH = r"C:\Users\mlevij\AppData\Local\Temp\claude\C--Users-mlevij\506a9e3e-2cc2-424c-bea3-00a1bc6d9347\scratchpad\clbj_ssurgo_horizons.json"
+OUT_PATH = r"C:\Users\mlevij\repos\sage-summer-camp-2026\drought-monitor\clbj_wfp_fc_sat.json"
+# NEON verticalPosition depths (cm), from swc_depthsV2.csv D11/CLBJ -- differs per site, don't reuse CPER's
+SENSOR_DEPTHS_CM = {"501": 6, "502": 16, "503": 26, "504": 56, "505": 76, "506": 106, "507": 136, "508": 196}
+# --------------------------------------------------
+
+with open(HORIZONS_PATH) as f:
     d = json.load(f)
 
 horizons = d["horizons"]
-
-SENSOR_DEPTHS_CM = {"501": 6, "502": 16, "503": 26, "504": 56, "505": 96, "506": 116, "507": 166, "508": 196}
 
 def find_horizon(depth_cm):
     for h in horizons:
@@ -45,6 +51,6 @@ for ver, depth_cm in SENSOR_DEPTHS_CM.items():
     print(f"{ver} ({depth_cm} cm) -> horizon {h['hzname']} [{h['hzdept_r']:.0f}-{h['hzdepb_r']:.0f} cm], "
           f"sand={h['sandtotal_r']}% clay={h['claytotal_r']}% OM={h['om_r']}% => WP={wp}% FC={fc}% Sat={sat}%")
 
-with open(r"C:\Users\mlevij\repos\sage-summer-camp-2026\drought-monitor\wfp_fc_sat.json", "w") as f:
+with open(OUT_PATH, "w") as f:
     json.dump(result, f, indent=1)
-print("\nWrote wfp_fc_sat.json")
+print(f"\nWrote {OUT_PATH}")

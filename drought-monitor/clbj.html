@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>CLBJ Drought Monitor — NEON Soil Water Content</title>
+<meta name="description" content="Soil water content by depth at NEON's CLBJ field site, daily/weekly/monthly aggregates.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..800&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3"></script>
+
+<style>
+  :root {
+    --bg: #0d1117;
+    --panel: #161b22;
+    --border: #262c36;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --accent: #58a6ff;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Inter", ui-sans-serif, system-ui, -apple-system;
+  }
+  header {
+    padding: 20px 28px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  header h1 {
+    margin: 0 0 4px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  header p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+  .site-meta {
+    display: flex;
+    gap: 16px;
+    margin-top: 8px;
+    font-size: 0.72rem;
+    color: var(--muted);
+    flex-wrap: wrap;
+  }
+  .site-meta span { white-space: nowrap; }
+  .site-meta b { color: var(--text); font-weight: 600; }
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px 28px 60px;
+  }
+  .panel {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px 12px;
+  }
+  .controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .controls h2 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--text);
+  }
+  .seg {
+    display: inline-flex;
+    background: #0d1117;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    overflow: hidden;
+  }
+  .seg button {
+    background: transparent;
+    border: none;
+    color: var(--muted);
+    font-family: inherit;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 6px 14px;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+  }
+  .seg button.active {
+    background: var(--accent);
+    color: #0d1117;
+  }
+  .seg button:not(.active):hover {
+    background: #1f2733;
+    color: var(--text);
+  }
+  .date-range {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.72rem;
+    color: var(--muted);
+  }
+  .date-range input[type="date"] {
+    background: #0d1117;
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 0.72rem;
+    padding: 5px 7px;
+    border-radius: 6px;
+    color-scheme: dark;
+  }
+  .date-range button {
+    background: #0d1117;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-family: inherit;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 5px 9px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  .date-range button:hover { color: var(--text); border-color: var(--accent); }
+  .depth-btn-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 4px;
+    flex-wrap: nowrap;
+    width: 100%;
+  }
+  .depth-btn-label {
+    color: var(--muted);
+    font-size: 0.68rem;
+    margin-right: 4px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .depth-btn-label sup {
+    cursor: default;
+  }
+  .depth-btn {
+    background: #0d1117;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-family: inherit;
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 4px 6px;
+    border-radius: 6px;
+    cursor: pointer;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: filter 0.15s, box-shadow 0.15s, color 0.15s, border-color 0.15s;
+  }
+  .depth-btn:hover { filter: brightness(1.2); }
+  .depth-btn.active {
+    color: #0d1117;
+    filter: brightness(1.15);
+  }
+  .zone-legend {
+    display: none;
+    gap: 14px;
+    font-size: 0.72rem;
+    color: var(--muted);
+    margin-top: 8px;
+    align-items: center;
+  }
+  .zone-legend.visible { display: flex; }
+  .zone-swatch { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 5px; vertical-align: -1px; }
+  #chartWrap { height: 460px; }
+  .note {
+    color: var(--muted);
+    font-size: 0.75rem;
+    margin-top: 10px;
+    line-height: 1.5;
+  }
+  .status {
+    color: var(--muted);
+    font-size: 0.8rem;
+    padding: 40px 0;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>CLBJ Drought Monitor</h1>
+  <p>NEON Lyndon B. Johnson National Grassland — soil water content (DP1.00094.001), 2021&ndash;2026</p>
+  <div class="site-meta">
+    <span><b>Location:</b> Cross Timbers, north-central Texas, ~50 km NW of Denton</span>
+    <span><b>Coordinates:</b> 33.4014&deg;N, 97.5673&deg;W</span>
+    <span><b>Domain:</b> D11 (Southern Plains)</span>
+  </div>
+</header>
+
+<main>
+  <div class="panel">
+    <div class="controls">
+      <h2>Volumetric water content by depth</h2>
+      <div class="date-range">
+        <label>From <input type="date" id="rangeStart"></label>
+        <label>To <input type="date" id="rangeEnd"></label>
+        <button id="rangeReset">Reset</button>
+      </div>
+      <div class="seg" id="resSeg">
+        <button data-res="daily">Daily</button>
+        <button data-res="weekly" class="active">Weekly</button>
+        <button data-res="monthly">Monthly</button>
+      </div>
+      <div class="depth-btn-row" id="depthBtnRow">
+        <span class="depth-btn-label">select to see FC, WP, Sat<sup>*</sup></span>
+      </div>
+    </div>
+    <div id="chartWrap">
+      <div class="status" id="status">Loading&hellip;</div>
+      <canvas id="vwcChart" style="display:none;"></canvas>
+    </div>
+    <div class="zone-legend" id="zoneLegend">
+      <span><span class="zone-swatch" style="background:rgba(250,85,85,0.5);"></span>Wilting point</span>
+      <span><span class="zone-swatch" style="background:rgba(141,237,142,0.5);"></span>Field capacity</span>
+      <span><span class="zone-swatch" style="background:rgba(247,251,118,0.5);"></span>Saturation</span>
+    </div>
+    <p class="note">
+      Each line is one sensor depth, averaged across CLBJ's replicate soil plots. Values are
+      volumetric water content (VWC, %) aggregated from NEON's 30-minute readings, 2021-07
+      through 2026-06. Use the date range above to zoom into a shorter window at any resolution.
+    </p>
+    <p class="note">
+      <sup>*</sup> Wilting point (WP), field capacity (FC), and saturation (Sat) reference zones
+      are computed per depth using the Saxton-Rawls (2006) pedotransfer function, from SSURGO
+      soil texture (sand/clay/organic matter) at CLBJ's soil pit location (33.4014,
+      &minus;97.5673 &mdash; dominant component: Duffau series). Click a depth button above to
+      show its zones; click again to hide.
+    </p>
+  </div>
+</main>
+
+<script>
+const DEPTH_COLORS = {
+  "501": "#7ee787", "502": "#56d4dd", "503": "#58a6ff", "504": "#79c0ff",
+  "505": "#d2a8ff", "506": "#f778ba", "507": "#ffa657", "508": "#f0883e",
+};
+// Darker variants of DEPTH_COLORS, used for the line strokes so they pop against
+// the chart's off-white plot background (buttons still use DEPTH_COLORS, on dark panel bg).
+const LINE_COLORS = {
+  "501": "#1f8536", "502": "#0d7377", "503": "#1258b8", "504": "#1f60c4",
+  "505": "#6b3fa0", "506": "#c22a72", "507": "#c2620a", "508": "#a1440e",
+};
+
+let chart = null;
+let DATA = null;
+let currentRes = "weekly";
+let zoneDepth = "";  // "" = no reference zones shown
+let rangeStart = "";  // "" = no lower bound
+let rangeEnd = "";    // "" = no upper bound
+
+const chartAreaBg = {
+  id: "chartAreaBg",
+  beforeDraw(c) {
+    const { ctx, chartArea } = c;
+    ctx.save();
+    ctx.fillStyle = "#f0efe9";
+    ctx.fillRect(chartArea.left, chartArea.top, chartArea.right - chartArea.left, chartArea.bottom - chartArea.top);
+    ctx.restore();
+  },
+};
+
+function depthLabel(ver, depthsM) {
+  const m = depthsM[ver];
+  if (m == null) return "unknown depth";
+  const cm = Math.abs(m) * 100;
+  const inches = cm / 2.54;
+  return `${Math.round(cm)} cm (${inches.toFixed(1)} in)`;
+}
+
+// Period strings are "YYYY-MM-DD" (daily/weekly) or "YYYY-MM" (monthly) -- both
+// sort/compare correctly as plain strings against a "YYYY-MM-DD" range bound.
+function inRange(period) {
+  if (rangeStart && period < rangeStart) return false;
+  if (rangeEnd && period > rangeEnd) return false;
+  return true;
+}
+
+function render(res) {
+  currentRes = res;
+  const series = DATA[res];
+  const verKeys = Object.keys(series).sort();
+
+  // union of all period labels across depths (some depths may have gaps), filtered to the active range
+  const periodSet = new Set();
+  verKeys.forEach(v => series[v].forEach(pt => { if (inRange(pt.period)) periodSet.add(pt.period); }));
+  const labels = Array.from(periodSet).sort();
+
+  const datasets = verKeys.map(ver => {
+    const byPeriod = Object.fromEntries(series[ver].map(pt => [pt.period, pt.mean * 100]));
+    return {
+      label: depthLabel(ver, DATA.depths_m),
+      data: labels.map(p => byPeriod[p] ?? null),
+      borderColor: LINE_COLORS[ver] || "#3a3f47",
+      backgroundColor: "transparent",
+      borderWidth: 2,
+      pointRadius: 0,
+      tension: 0.25,
+      spanGaps: true,
+    };
+  });
+
+  const dataVals = datasets.flatMap(d => d.data).filter(v => v != null);
+  const yMax = dataVals.length ? Math.ceil(Math.max(...dataVals) * 1.15) : 50;
+
+  if (chart) { chart.destroy(); chart = null; }
+  const ctx = document.getElementById("vwcChart").getContext("2d");
+  chart = new Chart(ctx, {
+    type: "line",
+    data: { labels, datasets },
+    plugins: [chartAreaBg],
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode: "index", intersect: false },
+      scales: {
+        x: {
+          ticks: { color: "#3a3f47", font: { size: 10 }, maxTicksLimit: 10, maxRotation: 0 },
+          grid: { color: "rgba(0,0,0,0.08)" },
+        },
+        y: {
+          min: 0,
+          max: yMax,
+          title: { display: true, text: "VWC (%)", color: "#3a3f47", font: { size: 11 } },
+          ticks: { color: "#3a3f47", font: { size: 10 } },
+          grid: { color: "rgba(0,0,0,0.08)" },
+        },
+      },
+      plugins: {
+        legend: {
+          labels: { color: "#e6edf3", font: { size: 10 }, boxWidth: 10, padding: 10 },
+        },
+        tooltip: {
+          backgroundColor: "#161b22",
+          titleColor: "#e6edf3",
+          bodyColor: "#e6edf3",
+          borderColor: "#262c36",
+          borderWidth: 1,
+          padding: 10,
+        },
+        annotation: { drawTime: "afterDraw", annotations: buildZoneAnnotations() },
+      },
+    },
+  });
+}
+
+function buildZoneAnnotations() {
+  if (!zoneDepth || !DATA.wp_fc_sat[zoneDepth]) return {};
+  const { wp, fc, sat } = DATA.wp_fc_sat[zoneDepth];
+  return {
+    wpZone:  { type: "box", yScaleID: "y", yMin: 0,  yMax: wp,  backgroundColor: "rgba(250,85,85,0.18)",  borderWidth: 0 },
+    fcZone:  { type: "box", yScaleID: "y", yMin: wp, yMax: fc,  backgroundColor: "rgba(141,237,142,0.14)", borderWidth: 0 },
+    satZone: { type: "box", yScaleID: "y", yMin: fc, yMax: 9999, backgroundColor: "rgba(247,251,118,0.12)", borderWidth: 0 },
+  };
+}
+
+fetch("clbj_data.json")
+  .then(r => r.json())
+  .then(json => {
+    DATA = json;
+    document.getElementById("status").style.display = "none";
+    document.getElementById("vwcChart").style.display = "block";
+    buildDepthButtons();
+    render(currentRes);
+  })
+  .catch(err => {
+    document.getElementById("status").textContent = "Failed to load clbj_data.json — " + err.message;
+  });
+
+function buildDepthButtons() {
+  const row = document.getElementById("depthBtnRow");
+  Object.keys(DATA.wp_fc_sat).sort().forEach(ver => {
+    const color = DEPTH_COLORS[ver] || "#8b949e";
+    const btn = document.createElement("button");
+    btn.className = "depth-btn";
+    btn.dataset.ver = ver;
+    btn.textContent = depthLabel(ver, DATA.depths_m);
+    btn.style.borderColor = color;
+    btn.style.color = color;
+    btn.addEventListener("click", () => {
+      const nowActive = !btn.classList.contains("active");
+      row.querySelectorAll(".depth-btn").forEach(b => {
+        b.classList.remove("active");
+        b.style.background = "#0d1117";
+        b.style.color = b.style.borderColor;
+        b.style.boxShadow = "none";
+      });
+      if (nowActive) {
+        btn.classList.add("active");
+        btn.style.background = color;
+        btn.style.color = "#0d1117";
+        btn.style.boxShadow = `0 0 10px 2px ${color}99`;
+        zoneDepth = ver;
+      } else {
+        zoneDepth = "";
+      }
+      document.getElementById("zoneLegend").classList.toggle("visible", !!zoneDepth);
+      render(currentRes);
+    });
+    row.appendChild(btn);
+  });
+}
+
+document.getElementById("resSeg").addEventListener("click", e => {
+  const btn = e.target.closest("button[data-res]");
+  if (!btn) return;
+  document.querySelectorAll("#resSeg button").forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
+  render(btn.dataset.res);
+});
+
+document.getElementById("rangeStart").addEventListener("change", e => { rangeStart = e.target.value; render(currentRes); });
+document.getElementById("rangeEnd").addEventListener("change", e => { rangeEnd = e.target.value; render(currentRes); });
+document.getElementById("rangeReset").addEventListener("click", () => {
+  rangeStart = ""; rangeEnd = "";
+  document.getElementById("rangeStart").value = "";
+  document.getElementById("rangeEnd").value = "";
+  render(currentRes);
+});
+</script>
+
+</body>
+</html>

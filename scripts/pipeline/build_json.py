@@ -2,13 +2,18 @@ import csv
 import json
 from collections import defaultdict
 
-base = r"C:\Users\mlevij\OneDrive - Colostate\Levi\NEON\CPER_SWC_5yr_30min"
-out_path = r"C:\Users\mlevij\repos\sage-summer-camp-2026\drought-monitor\data.json"
-
-DEPTH_M = {  # from swc_depthsV2.csv, D10/CPER shallow-to-deep, negative = below surface (m)
+# --- site config -- edit these for a new site ---
+SITE = "CLBJ"
+SITE_LOWER = "clbj"
+CSV_DIR = r"C:\Users\mlevij\OneDrive - Colostate\Levi\NEON\CLBJ_SWC_5yr_30min"
+WP_FC_SAT_PATH = r"C:\Users\mlevij\repos\sage-summer-camp-2026\drought-monitor\clbj_wfp_fc_sat.json"
+WP_FC_SAT_SOURCE = "SSURGO (Duffau series, dominant component, CLBJ soil pit 33.4014,-97.5673) + Saxton-Rawls 2006"
+OUT_PATH = r"C:\Users\mlevij\repos\sage-summer-camp-2026\drought-monitor\clbj_data.json"
+DEPTH_M = {  # from swc_depthsV2.csv, D11/CLBJ shallow-to-deep, negative = below surface (m)
     "501": -0.06, "502": -0.16, "503": -0.26, "504": -0.56,
-    "505": -0.96, "506": -1.16, "507": -1.66, "508": -1.96,
+    "505": -0.76, "506": -1.06, "507": -1.36, "508": -1.96,
 }
+# --------------------------------------------------
 
 def weighted_agg(rows_by_key):
     # rows_by_key: key -> list of (n, mean, mn, mx)
@@ -46,25 +51,28 @@ def load(path, period_key):
         result[ver] = series
     return result
 
-weekly = load(f"{base}\\cper_swc_weekly.csv", "weekStart")
-monthly = load(f"{base}\\cper_swc_monthly.csv", "month")
+daily = load(f"{CSV_DIR}\\{SITE_LOWER}_swc_daily.csv", "date")
+weekly = load(f"{CSV_DIR}\\{SITE_LOWER}_swc_weekly.csv", "weekStart")
+monthly = load(f"{CSV_DIR}\\{SITE_LOWER}_swc_monthly.csv", "month")
 
-with open(r"C:\Users\mlevij\repos\sage-summer-camp-2026\drought-monitor\wfp_fc_sat.json") as f:
+with open(WP_FC_SAT_PATH) as f:
     wp_fc_sat = json.load(f)
 
 data = {
-    "site": "CPER",
+    "site": SITE,
     "product": "DP1.00094.001",
     "units": "VWC (m3/m3)",
     "depths_m": DEPTH_M,
     "wp_fc_sat": wp_fc_sat,
-    "wp_fc_sat_source": "SSURGO (Ascalon series, dominant component, CPER soil pit 40.81297,-104.74455) + Saxton-Rawls 2006",
+    "wp_fc_sat_source": WP_FC_SAT_SOURCE,
+    "daily": daily,
     "weekly": weekly,
     "monthly": monthly,
 }
 
-with open(out_path, "w") as f:
+with open(OUT_PATH, "w") as f:
     json.dump(data, f, indent=1)
 
-print(f"Wrote {out_path}")
+print(f"Wrote {OUT_PATH}")
 print("Depths present:", sorted(weekly.keys()))
+print("Daily points (dep 501):", len(daily.get("501", [])))

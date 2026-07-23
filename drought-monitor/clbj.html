@@ -247,7 +247,9 @@
       are computed per depth using the Saxton-Rawls (2006) pedotransfer function, from SSURGO
       soil texture (sand/clay/organic matter) at CLBJ's soil pit location (33.4014,
       &minus;97.5673 &mdash; dominant component: Duffau series). Click a depth button above to
-      isolate that depth's line and show its zones; click again to show all depths.
+      isolate that depth's line, show its zones, and shade the min&ndash;max range within each
+      plotted period (still aggregated from NEON's underlying 30-minute readings, not a raw
+      sub-daily trace); click again to show all depths.
     </p>
   </div>
 </main>
@@ -281,6 +283,14 @@ const chartAreaBg = {
     ctx.restore();
   },
 };
+
+function hexToRgba(hex, alpha) {
+  const h = hex.replace("#", "");
+  const r = parseInt(h.substring(0, 2), 16);
+  const g = parseInt(h.substring(2, 4), 16);
+  const b = parseInt(h.substring(4, 6), 16);
+  return `rgba(${r},${g},${b},${alpha})`;
+}
 
 function depthLabel(ver, depthsM) {
   const m = depthsM[ver];
@@ -336,23 +346,59 @@ function render(res) {
   verKeys.forEach(v => series[v].forEach(pt => { if (inRange(pt.period)) periodSet.add(pt.period); }));
   const labels = Array.from(periodSet).sort();
 
-  const datasets = verKeys
+  const datasets = [];
+  verKeys
     .filter(ver => !zoneDepth || ver === zoneDepth)
-    .map(ver => {
-      const byPeriod = Object.fromEntries(series[ver].map(pt => [pt.period, pt.mean * 100]));
-      return {
+    .forEach(ver => {
+      const byPeriod = Object.fromEntries(series[ver].map(pt => [pt.period, pt]));
+      const color = LINE_COLORS[ver] || "#3a3f47";
+
+      // Min/max band -- only drawn when a single depth is isolated (zoneDepth set);
+      // with all 8 lines showing at once, 8 overlapping bands would be unreadable.
+      if (zoneDepth) {
+        datasets.push({
+          label: depthLabel(ver, DATA.depths_m) + " (min)",
+          data: labels.map(p => byPeriod[p] ? byPeriod[p].min * 100 : null),
+          borderColor: "transparent",
+          backgroundColor: "transparent",
+          borderWidth: 0,
+          pointRadius: 0,
+          tension: 0.25,
+          spanGaps: true,
+          fill: false,
+          _isRange: true,
+        });
+        datasets.push({
+          label: depthLabel(ver, DATA.depths_m) + " (max)",
+          data: labels.map(p => byPeriod[p] ? byPeriod[p].max * 100 : null),
+          borderColor: "transparent",
+          backgroundColor: hexToRgba(color, 0.16),
+          borderWidth: 0,
+          pointRadius: 0,
+          tension: 0.25,
+          spanGaps: true,
+          fill: "-1",
+          _isRange: true,
+        });
+      }
+
+      datasets.push({
         label: depthLabel(ver, DATA.depths_m),
-        data: labels.map(p => byPeriod[p] ?? null),
-        borderColor: LINE_COLORS[ver] || "#3a3f47",
+        data: labels.map(p => byPeriod[p] ? byPeriod[p].mean * 100 : null),
+        borderColor: color,
         backgroundColor: "transparent",
         borderWidth: 2,
         pointRadius: 0,
         tension: 0.25,
         spanGaps: true,
-      };
+      });
     });
 
-  const dataVals = datasets.flatMap(d => d.data).filter(v => v != null);
+  // Scale the axis to the mean lines only -- precip spikes can push the min/max band's
+  // "max" side far above typical VWC, and letting that drive the axis would crush the
+  // mean line and WP/FC/Sat zones down to an unreadable strip. The band still renders,
+  // just clipped at the top of the visible range when it exceeds it.
+  const dataVals = datasets.filter(d => !d._isRange).flatMap(d => d.data).filter(v => v != null);
   const yMax = dataVals.length ? Math.ceil(Math.max(...dataVals) * 1.15) : 50;
 
   if (chart) { chart.destroy(); chart = null; }
@@ -387,6 +433,7 @@ function render(res) {
           borderColor: "#262c36",
           borderWidth: 1,
           padding: 10,
+          filter: item => !item.dataset._isRange,
         },
         annotation: { drawTime: "afterDraw", annotations: buildZoneAnnotations() },
       },

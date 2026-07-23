@@ -238,6 +238,11 @@ Learned mid-session that data acquisition for the workshop is expected to go to 
 ### Repo cleanup: stale CPER drought-monitor page deleted
 User asked to delete the original CPER-era `drought-monitor/index.html` (plus its `data.json`/`wfp_fc_sat.json`) now that `clbj.html`/`clbj_data.json`/`clbj_wfp_fc_sat.json` are the only real, current copies (matches the live site and the new HF-uploaded data). Confirmed via grep no other code referenced the CPER files before deleting (`git rm -f`, since `index.html` still had an uncommitted opacity-tweak diff sitting on it from earlier in the day that's moot once the file's gone). `scripts/README.md`'s "Planned, not yet built" section (daily aggregation + date-range selector) was also stale — both shipped weeks ago — updated to reflect actual current state instead.
 
+All of the above (README update, `upload_to_hf.py`, the `pull_5yr_swc.py` date-range fix, and the CPER-page deletion) committed and pushed together: `02e94b5`.
+
+### `upload_to_hf.py` also mirrored to the Hugging Face OneDrive folder
+User's convention going forward: local pipeline scripts live in the git repo (`scripts/pipeline/`) as the source of truth, but any script that's specifically Hugging-Face-related also gets a standalone copy in `C:\Users\mlevij\OneDrive - Colostate\Levi\Hugging Face\` for easy access alongside the token. Only `upload_to_hf.py` qualified (the login/repo-creation steps were one-off command-line invocations, never saved as files). **Known tradeoff, flagged to the user**: this OneDrive copy won't stay in sync automatically if the repo version gets edited later — same drift risk as the AES/DF stale-copy situation from earlier this week — acceptable for now since it's just a convenience reference copy.
+
 ---
 
 ## Open items / unresolved

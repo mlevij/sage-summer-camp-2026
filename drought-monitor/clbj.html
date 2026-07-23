@@ -99,9 +99,13 @@
     background: var(--accent);
     color: #0d1117;
   }
-  .seg button:not(.active):hover {
+  .seg button:not(.active):not(:disabled):hover {
     background: #1f2733;
     color: var(--text);
+  }
+  .seg button:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
   }
   .date-range {
     display: flex;
@@ -286,12 +290,42 @@ function depthLabel(ver, depthsM) {
   return `${Math.round(cm)} cm (${inches.toFixed(1)} in)`;
 }
 
-// Period strings are "YYYY-MM-DD" (daily/weekly) or "YYYY-MM" (monthly) -- both
-// sort/compare correctly as plain strings against a "YYYY-MM-DD" range bound.
+// Period strings are "YYYY-MM-DD" (daily/weekly) or "YYYY-MM" (monthly). A bare
+// "YYYY-MM" string compares as *less than* any "YYYY-MM-DD" starting with the same
+// month (shorter is "less" lexicographically), so a monthly period was wrongly
+// treated as entirely before a range that starts mid-month -- expand it to its
+// real [first day, last day] span before comparing against the range bounds.
+function periodBounds(period) {
+  if (period.length === 7) return [period + "-01", period + "-31"];
+  return [period, period];
+}
 function inRange(period) {
-  if (rangeStart && period < rangeStart) return false;
-  if (rangeEnd && period > rangeEnd) return false;
+  const [pStart, pEnd] = periodBounds(period);
+  if (rangeStart && pEnd < rangeStart) return false;
+  if (rangeEnd && pStart > rangeEnd) return false;
   return true;
+}
+
+// Monthly resolution shows at most one point for a range this short, which reads as
+// an empty chart -- keep it off the table until the range is widened back out.
+function rangeSpanDays() {
+  if (!rangeStart || !rangeEnd) return null;
+  const start = new Date(rangeStart + "T00:00:00Z");
+  const end = new Date(rangeEnd + "T00:00:00Z");
+  return Math.round((end - start) / 86400000) + 1;
+}
+function isSingleMonthOrLess() {
+  const span = rangeSpanDays();
+  return span !== null && span <= 31;
+}
+function updateResAvailability() {
+  const monthlyBtn = document.querySelector('#resSeg button[data-res="monthly"]');
+  const disable = isSingleMonthOrLess();
+  monthlyBtn.disabled = disable;
+  if (disable && currentRes === "monthly") {
+    currentRes = "weekly";
+    document.querySelectorAll("#resSeg button").forEach(b => b.classList.toggle("active", b.dataset.res === "weekly"));
+  }
 }
 
 function render(res) {
@@ -372,12 +406,26 @@ function buildZoneAnnotations() {
   };
 }
 
+function setDateInputBounds() {
+  const allPeriods = [];
+  Object.values(DATA.daily).forEach(pts => pts.forEach(pt => allPeriods.push(pt.period)));
+  allPeriods.sort();
+  const minP = allPeriods[0];
+  const maxP = allPeriods[allPeriods.length - 1];
+  ["rangeStart", "rangeEnd"].forEach(id => {
+    const el = document.getElementById(id);
+    el.min = minP;
+    el.max = maxP;
+  });
+}
+
 fetch("clbj_data.json")
   .then(r => r.json())
   .then(json => {
     DATA = json;
     document.getElementById("status").style.display = "none";
     document.getElementById("vwcChart").style.display = "block";
+    setDateInputBounds();
     buildDepthButtons();
     render(currentRes);
   })
@@ -427,12 +475,21 @@ document.getElementById("resSeg").addEventListener("click", e => {
   render(btn.dataset.res);
 });
 
-document.getElementById("rangeStart").addEventListener("change", e => { rangeStart = e.target.value; render(currentRes); });
-document.getElementById("rangeEnd").addEventListener("change", e => { rangeEnd = e.target.value; render(currentRes); });
+document.getElementById("rangeStart").addEventListener("change", e => {
+  rangeStart = e.target.value;
+  updateResAvailability();
+  render(currentRes);
+});
+document.getElementById("rangeEnd").addEventListener("change", e => {
+  rangeEnd = e.target.value;
+  updateResAvailability();
+  render(currentRes);
+});
 document.getElementById("rangeReset").addEventListener("click", () => {
   rangeStart = ""; rangeEnd = "";
   document.getElementById("rangeStart").value = "";
   document.getElementById("rangeEnd").value = "";
+  updateResAvailability();
   render(currentRes);
 });
 </script>

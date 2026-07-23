@@ -306,25 +306,23 @@ function inRange(period) {
   return true;
 }
 
-// Monthly resolution shows at most one point for a range this short, which reads as
-// an empty chart -- keep it off the table until the range is widened back out.
 function rangeSpanDays() {
   if (!rangeStart || !rangeEnd) return null;
   const start = new Date(rangeStart + "T00:00:00Z");
   const end = new Date(rangeEnd + "T00:00:00Z");
   return Math.round((end - start) / 86400000) + 1;
 }
-function isSingleMonthOrLess() {
-  const span = rangeSpanDays();
-  return span !== null && span <= 31;
-}
+// Monthly resolution shows at most one point for a range this narrow, which reads as
+// an empty chart -- keep it off the table until the range is widened back out. Any
+// range of 3 months or less defaults to daily (the finest tier), regardless of
+// whichever resolution was previously active.
 function updateResAvailability() {
+  const span = rangeSpanDays();
   const monthlyBtn = document.querySelector('#resSeg button[data-res="monthly"]');
-  const disable = isSingleMonthOrLess();
-  monthlyBtn.disabled = disable;
-  if (disable && currentRes === "monthly") {
-    currentRes = "weekly";
-    document.querySelectorAll("#resSeg button").forEach(b => b.classList.toggle("active", b.dataset.res === "weekly"));
+  monthlyBtn.disabled = span !== null && span <= 31;
+  if (span !== null && span <= 93) {
+    currentRes = "daily";
+    document.querySelectorAll("#resSeg button").forEach(b => b.classList.toggle("active", b.dataset.res === "daily"));
   }
 }
 

@@ -221,7 +221,7 @@
         <button data-res="monthly">Monthly</button>
       </div>
       <div class="depth-btn-row" id="depthBtnRow">
-        <span class="depth-btn-label">select to see FC, WP, Sat<sup>*</sup></span>
+        <span class="depth-btn-label">select to isolate + see FC, WP, Sat<sup>*</sup></span>
       </div>
     </div>
     <div id="chartWrap">
@@ -243,7 +243,7 @@
       are computed per depth using the Saxton-Rawls (2006) pedotransfer function, from SSURGO
       soil texture (sand/clay/organic matter) at CLBJ's soil pit location (33.4014,
       &minus;97.5673 &mdash; dominant component: Duffau series). Click a depth button above to
-      show its zones; click again to hide.
+      isolate that depth's line and show its zones; click again to show all depths.
     </p>
   </div>
 </main>
@@ -304,19 +304,21 @@ function render(res) {
   verKeys.forEach(v => series[v].forEach(pt => { if (inRange(pt.period)) periodSet.add(pt.period); }));
   const labels = Array.from(periodSet).sort();
 
-  const datasets = verKeys.map(ver => {
-    const byPeriod = Object.fromEntries(series[ver].map(pt => [pt.period, pt.mean * 100]));
-    return {
-      label: depthLabel(ver, DATA.depths_m),
-      data: labels.map(p => byPeriod[p] ?? null),
-      borderColor: LINE_COLORS[ver] || "#3a3f47",
-      backgroundColor: "transparent",
-      borderWidth: 2,
-      pointRadius: 0,
-      tension: 0.25,
-      spanGaps: true,
-    };
-  });
+  const datasets = verKeys
+    .filter(ver => !zoneDepth || ver === zoneDepth)
+    .map(ver => {
+      const byPeriod = Object.fromEntries(series[ver].map(pt => [pt.period, pt.mean * 100]));
+      return {
+        label: depthLabel(ver, DATA.depths_m),
+        data: labels.map(p => byPeriod[p] ?? null),
+        borderColor: LINE_COLORS[ver] || "#3a3f47",
+        backgroundColor: "transparent",
+        borderWidth: 2,
+        pointRadius: 0,
+        tension: 0.25,
+        spanGaps: true,
+      };
+    });
 
   const dataVals = datasets.flatMap(d => d.data).filter(v => v != null);
   const yMax = dataVals.length ? Math.ceil(Math.max(...dataVals) * 1.15) : 50;
@@ -345,9 +347,7 @@ function render(res) {
         },
       },
       plugins: {
-        legend: {
-          labels: { color: "#e6edf3", font: { size: 10 }, boxWidth: 10, padding: 10 },
-        },
+        legend: { display: false },
         tooltip: {
           backgroundColor: "#161b22",
           titleColor: "#e6edf3",
@@ -366,9 +366,9 @@ function buildZoneAnnotations() {
   if (!zoneDepth || !DATA.wp_fc_sat[zoneDepth]) return {};
   const { wp, fc, sat } = DATA.wp_fc_sat[zoneDepth];
   return {
-    wpZone:  { type: "box", yScaleID: "y", yMin: 0,  yMax: wp,  backgroundColor: "rgba(250,85,85,0.18)",  borderWidth: 0 },
-    fcZone:  { type: "box", yScaleID: "y", yMin: wp, yMax: fc,  backgroundColor: "rgba(141,237,142,0.14)", borderWidth: 0 },
-    satZone: { type: "box", yScaleID: "y", yMin: fc, yMax: 9999, backgroundColor: "rgba(247,251,118,0.12)", borderWidth: 0 },
+    wpZone:  { type: "box", yScaleID: "y", yMin: 0,  yMax: wp,  backgroundColor: "rgba(230,60,60,0.34)",  borderWidth: 0 },
+    fcZone:  { type: "box", yScaleID: "y", yMin: wp, yMax: fc,  backgroundColor: "rgba(60,190,80,0.28)", borderWidth: 0 },
+    satZone: { type: "box", yScaleID: "y", yMin: fc, yMax: 9999, backgroundColor: "rgba(235,205,40,0.30)", borderWidth: 0 },
   };
 }
 

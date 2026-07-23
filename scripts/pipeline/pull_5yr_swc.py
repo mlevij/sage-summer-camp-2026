@@ -9,7 +9,7 @@ nu.zips_by_product(
     dpid="DP1.00094.001",
     site="CLBJ",
     startdate="2021-07",
-    enddate="2026-06",
+    enddate="2026-07",
     package="basic",
     timeindex="30",
     check_size=False,

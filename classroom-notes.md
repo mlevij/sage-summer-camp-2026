@@ -189,9 +189,64 @@ Sage staff circulated an updated list of real camera streams to use in place of 
 
 ---
 
+## Session: 2026-07-23
+
+### H037 assigned; VS Code Remote-SSH fought and eventually abandoned in favor of plain terminal
+Workshop assigned node **H037** (same Jetson AGX Thor hardware family as H02E, confirmed via `uname -a` — `6.8.12-tegra`, `aarch64`). User wanted to use VS Code instead of a bare terminal this time (matches everyone else at the workshop) — real troubleshooting saga, same root cause as the H02E Remote-SSH failure noted above (07-21 session):
+- Plain `ssh mlevij@waggle-dev-node-h037 hostname` worked immediately (as expected, same key/gateway setup as H02E/H019) — confirms this was never a node-access problem.
+- VS Code's Remote-SSH extension, even from inside a **WSL: Ubuntu**-connected window, still runs as a Windows-side/local extension and doesn't automatically read WSL's `~/.ssh/config` (where the working bastion `ProxyCommand` setup actually lives) — it defaults to the Windows-side config instead, hence "could not resolve hostname" for `waggle-dev-node-h037` (not a real DNS name, only resolvable via the config's proxy).
+- Fix applied: set `remote.SSH.configFile` to the WSL path via UNC (`\\wsl.localhost\Ubuntu\home\mlevij\.ssh\config` — confirmed to exist first via Windows Explorer address bar, since `\\wsl$\...` is the older/alternate form and not guaranteed on every Windows build), specifically under the **User** settings tab (not the "Remote [WSL: Ubuntu]" tab, which the Settings UI defaults to when you're WSL-connected and edit settings there — the Remote-SSH extension doesn't read that scope).
+- Still failed after that fix too ("could not resolve hostname" again) — ran out of appetite to keep debugging and **fell back to a plain terminal inside VS Code's integrated terminal panel** (`ssh mlevij@waggle-dev-node-h037`), which works fine and was good enough. Full GUI remote-window experience (file browser on the node, etc.) never actually achieved this session — worth revisiting later if it becomes worth the time investment, but not blocking.
+
+### Python environment set up on H037
+- `python3 --version` → 3.12.3, pip 24.0 already present at `/usr/bin/python3`.
+- Learned lesson applied proactively (from the earlier WSL2 PEP 668 incident, 07-17 session): created a venv **before** installing anything — `python3 -m venv ~/df-venv` → `source ~/df-venv/bin/activate`. Avoided the externally-managed-environment error entirely.
+- `pip install neonutilities` succeeded cleanly — all dependencies (`duckdb`, `pandas`, `pyarrow`, `h5py`, `pyproj`, etc.) had real `aarch64` prebuilt wheels available, nothing had to compile from source. `neonutilities` has no `__version__` attribute (minor package quirk, not a failure — `import neonutilities` succeeding is the real check).
+- Disk: 3.6TB total, 3.3TB free. Memory: 122GB total, 55GB "available" (the number that matters, after reclaimable cache). No swap. Plenty of headroom for this work.
+- NEON API token moved onto the node the simple way — opened the token file locally in Notepad, copied the value, then on H037: `cat > ~/.neon_token` (paste token, Enter, `Ctrl+D` to save) — avoided fighting `scp`/OneDrive path issues between Windows/WSL/node.
+
+### Orthorectified camera imagery (AOP) — explored, deliberately dropped
+Original idea: NEON's Airborne Observation Platform, `DP3.30010.001` (10cm RGB orthomosaic), for the same 2021-2026 window as the soil moisture pull. **User's own conclusion, before any code was written**: AOP is a once-a-year-ish flyover per site — nowhere near enough temporal density to be useful for a continuous 5-year comparison the way the 30-min soil moisture data is. Same sparsity problem would apply to AOP's spectrometer-derived vegetation indices (`DP3.30026.001`: NDVI/EVI/ARVI/PRI/SAVI/NDLI/NDNI — confirmed NEON has no dedicated LAI product in that set). Dropped in favor of NEON's in-situ PhenoCam instead, which actually matches the soil moisture data's continuous cadence and site.
+
+### PhenoCam (DP1.00033.001) investigation — real, useful findings
+Confirmed via NEON's own `/api/v0/data/DP1.00033.001/CLBJ/2023-06` endpoint that **phenology images aren't served through NEON's API at all** — `files`/`packages` both come back empty, with an `externalData` entry pointing to the PhenoCam Network's own site: `https://phenocam.nau.edu/webcam/sites/NEON.D11.CLBJ.DP1.00033/`. `neonutilities` cannot pull this product; had to work with PhenoCam Network's own archive URLs directly.
+
+**ROI investigation** — CLBJ has three regions-of-interest, discovered via the site's own webpage (`DB_1000`, `DB_2000`, `DB_3000`) plus real archive URLs following the pattern `https://phenocam.nau.edu/data/archive/{site}/ROI/{site}_{roi}_{1day|3day}.csv`:
+- **Lesson (important): the HTTP `Last-Modified` header is misleading for these files** — `DB_1000` and `DB_2000` both showed recent-looking `Last-Modified` timestamps (Jan 2021 and "yesterday" respectively) despite their actual content having stopped years earlier. Had to check the real tail-of-file data rows, not just the header, to find true currency. (Guess: PhenoCam periodically re-touches/regenerates these files even when no new rows get appended.)
+- **`DB_1000`**: 2017 → dead 2017-12-07.
+- **`DB_2000`**: 2017-12-07 → 2024-01-08 (covers our full 2021-07 start point).
+- **`DB_3000`**: 2024-01-24 → present (2026-07-13 as of this session) — the currently-active ROI.
+- **~16-day gap** between `DB_2000` ending and `DB_3000` starting (2024-01-09 through 2024-01-23) — real, small, accepted as-is rather than chased down further.
+- Real image size confirmed directly (not estimated): **382,951 bytes (~374KB)** per JPEG, sampled from a real `DB_3000` file from 2026-07-13.
+
+**Cadence decision — native (~40 images/day) dropped in favor of once-daily**: the summary CSVs (`1day`/`3day`) only ever reference **one representative "midday" image per period**, not a full manifest of every image captured that day. Confirmed this is the actual sanctioned access pattern, not a gap in our understanding — PhenoCam's own official `phenocamapi` R package's real download function is literally named `download_midday_images()`. Getting every native image (~72,000 over 5 years, ~27GB estimated) would mean either brute-force-guessing timestamps against the raw archive path (unreliable — capture times are irregular, e.g. `115500` vs `121000`, not a fixed schedule) or a direct bulk-access request to PhenoCam Network admins. **Decision**: use the once-daily midday images for now (workshop timeline) — real, supported, ~0.65GB total for the full window. **Explicitly deferred, not forgotten**: if a later model-training effort needs the full native ~40/day resolution, ask PhenoCam Network directly for raw archive access at that point.
+
+**Download script built and run on H037** (`~/pull-phenocam.py`, created via `nano` after a `cat << 'PYEOF'` heredoc paste got corrupted mid-transfer — large multi-line pastes into a live SSH terminal can arrive out of order; `nano` handled the same paste reliably). Stitches `DB_2000`'s `1day.csv` (2021-07-01 → 2024-01-08) and `DB_3000`'s `1day.csv` (2024-01-24 → 2026-06-30), pulls each day's real `midday_filename`, downloads from `.../archive/{site}/{year}/{month}/{filename}`, and writes a manifest CSV (date/roi/filename/GCC values/status) alongside the images. **Result: 1,759 images downloaded, 52 days skipped (no image that day), 0 failures** — exactly matches 922+889=1,811 total days in range. Images and manifest live locally on H037 only (`~/clbj_phenocam_images/`, `~/clbj_phenocam_manifest.csv`) — not yet pushed anywhere else, since the Hugging Face workflow below was set up for the *soil moisture* pipeline first; extending it to these images is a natural next step but wasn't done this session.
+
+### Workshop-wide instruction: acquired data goes to Hugging Face, not just local disk
+Learned mid-session that data acquisition for the workshop is expected to go to each participant's Hugging Face account, so it can be shared across the team and used to train a model later — not just sit on local/node disk. Applied this to the **soil moisture** pipeline (the PhenoCam images above are local-only for now, flagged above as a follow-up).
+
+**Setup** (all on the laptop, not H037 — the soil moisture pipeline has always run there):
+1. Created a Hugging Face **Write**-scoped access token via `huggingface.co/settings/tokens`, saved to `C:\Users\mlevij\OneDrive - Colostate\Levi\Hugging Face\.huggingface_token`.
+2. `py -3.10 -m pip install huggingface_hub` — clean install, no issues.
+3. Verified auth via `login()`/`whoami()` before doing anything else — confirmed `repo.write` permission before relying on it.
+4. Created a new **private** dataset repo: `mlevij/neon_CLBJ` (named to match a colleague's existing naming convention, not the `clbj-soil-moisture` name first suggested).
+5. Wrote `scripts/pipeline/upload_to_hf.py` (new, 6th step in the pipeline) — uploads the daily/weekly/monthly CSVs plus `clbj_data.json`/`clbj_wfp_fc_sat.json` via `HfApi.upload_file()`.
+
+**Verified end to end**: first ran the upload against already-existing (2026-07-22) pipeline output to prove the mechanism, confirmed via `list_repo_files()` that all 5 files landed correctly. Then did a genuine fresh re-run of the whole chain — updated `pull_5yr_swc.py`'s `enddate` from `2026-06` to `2026-07`, re-ran `pull_5yr_swc.py` → `aggregate_swc.py` → `build_json.py` → `upload_to_hf.py`. **Real finding**: the re-upload correctly reported "No files have been modified since last commit" for all 5 files and skipped creating empty commits — NEON hadn't actually published July 2026 data yet (normal processing lag), so the freshly-regenerated output was byte-identical to what was already on Hugging Face. Confirms the upload step is properly idempotent, not just "always commits something."
+
+### Repo cleanup: stale CPER drought-monitor page deleted
+User asked to delete the original CPER-era `drought-monitor/index.html` (plus its `data.json`/`wfp_fc_sat.json`) now that `clbj.html`/`clbj_data.json`/`clbj_wfp_fc_sat.json` are the only real, current copies (matches the live site and the new HF-uploaded data). Confirmed via grep no other code referenced the CPER files before deleting (`git rm -f`, since `index.html` still had an uncommitted opacity-tweak diff sitting on it from earlier in the day that's moot once the file's gone). `scripts/README.md`'s "Planned, not yet built" section (daily aggregation + date-range selector) was also stale — both shipped weeks ago — updated to reflect actual current state instead.
+
+---
+
 ## Open items / unresolved
 - Unidentified FT232 USB-serial device (`/dev/ttyUSB0`) on H02E — GPS suspected, unconfirmed.
 - `sage_data_client` assignment part 2 (latest temp, all nodes, last 5 min) — script pattern known, not yet run/confirmed.
 - Precip units for `env.raingauge.total_acc` (Hydreon RG-15) — mm strongly assumed from value magnitude, not confirmed from device config or an independent cross-check.
 - Whether W021's 54.52°C reading has the same core/shield sensor-placement split diagnosed on W06C — not directly checked.
+- Full VS Code Remote-SSH GUI experience on H037 still doesn't work (config-file-scope fix applied but still failed to connect) — fell back to plain terminal-in-VS-Code instead. Not blocking, but unresolved if the full remote-window experience (file browser, etc.) is wanted later.
+- PhenoCam raw/native image archive access (~40 images/day instead of once-daily) — deliberately deferred; would need a direct request to PhenoCam Network admins if a future model-training effort needs it.
+- The `DB_2000`→`DB_3000` ROI splice has a real ~16-day gap (2024-01-09 through 2024-01-23) with no CLBJ phenocam data at all — accepted as negligible, not investigated further.
+- **PhenoCam images not yet pushed to Hugging Face** — 1,759 downloaded images + manifest currently sit local-only on H037 (`~/clbj_phenocam_images/`, `~/clbj_phenocam_manifest.csv`); the HF upload workflow was only built for the soil moisture pipeline so far. Natural next step, not done this session.
 - Git push authentication from H02E is unresolved — pushes currently require the GitHub web UI as a workaround.

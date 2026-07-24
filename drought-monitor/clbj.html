@@ -3,13 +3,15 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>CLBJ Drought Monitor — NEON Soil Water Content</title>
-<meta name="description" content="Soil water content by depth at NEON's CLBJ field site, daily/weekly/monthly aggregates.">
+<title>CLBJ Drought Monitor — Wise County, TX</title>
+<meta name="description" content="USDM drought timelapse for Wise County, TX plus NEON CLBJ soil water content by depth, daily/weekly/monthly aggregates.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..800&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <style>
   :root {
@@ -196,13 +198,69 @@
     padding: 40px 0;
     text-align: center;
   }
+
+  #droughtMap {
+    height: 420px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .slider-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 12px 0 10px;
+  }
+  .play-btn {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    padding: 5px 12px;
+    background: var(--accent);
+    color: #0d1117;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    border-radius: 6px;
+  }
+  .play-btn:hover { opacity: 0.85; }
+  .bound {
+    font-size: 0.7rem;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  #mapSlider {
+    flex: 1;
+    accent-color: var(--accent);
+    cursor: pointer;
+  }
+  .month-display {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--accent);
+    min-width: 4.5rem;
+    text-align: right;
+  }
+  .drought-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 14px;
+    margin-top: 10px;
+  }
+  .drought-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.72rem;
+    color: var(--muted);
+  }
+  .drought-swatch { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 3px; vertical-align: -1px; }
 </style>
 </head>
 <body>
 
 <header>
   <h1>CLBJ Drought Monitor</h1>
-  <p>NEON Lyndon B. Johnson National Grassland — soil water content (DP1.00094.001), 2021&ndash;2026</p>
+  <p>Wise County, TX drought status (USDM) and NEON CLBJ soil water content (DP1.00094.001), 2021&ndash;2026</p>
   <div class="site-meta">
     <span><b>Location:</b> Cross Timbers, north-central Texas, ~50 km NW of Denton</span>
     <span><b>Coordinates:</b> 33.4014&deg;N, 97.5673&deg;W</span>
@@ -211,6 +269,33 @@
 </header>
 
 <main>
+  <div class="panel">
+    <div class="controls">
+      <h2>Wise County drought status (USDM)</h2>
+    </div>
+    <div id="droughtMap"></div>
+    <div class="slider-row">
+      <button class="play-btn" id="mapPlayBtn">&#9654; Play</button>
+      <span class="bound" id="mapMonthMin"></span>
+      <input type="range" id="mapSlider" min="0" max="0" value="0" step="1">
+      <span class="bound" id="mapMonthMax"></span>
+      <span class="month-display" id="mapMonthDisplay"></span>
+    </div>
+    <div class="drought-legend">
+      <span class="drought-legend-item"><span class="drought-swatch" style="background:#ffff00"></span>D0 Abnormally Dry</span>
+      <span class="drought-legend-item"><span class="drought-swatch" style="background:#fcd37f"></span>D1 Moderate</span>
+      <span class="drought-legend-item"><span class="drought-swatch" style="background:#ffaa00"></span>D2 Severe</span>
+      <span class="drought-legend-item"><span class="drought-swatch" style="background:#e60000"></span>D3 Extreme</span>
+      <span class="drought-legend-item"><span class="drought-swatch" style="background:#730000"></span>D4 Exceptional</span>
+    </div>
+    <p class="note">
+      Each frame shows that month's single worst week (by area-weighted severity) from the U.S.
+      Drought Monitor, clipped to Wise County's actual boundary — coloring reflects real
+      within-county variation rather than one flat category for the whole county. The white
+      marker shows NEON's CLBJ tower location for reference.
+    </p>
+  </div>
+
   <div class="panel">
     <div class="controls">
       <h2>Volumetric water content by depth</h2>
@@ -265,6 +350,88 @@ const LINE_COLORS = {
   "501": "#1f8536", "502": "#0d7377", "503": "#1258b8", "504": "#1f60c4",
   "505": "#6b3fa0", "506": "#c22a72", "507": "#c2620a", "508": "#a1440e",
 };
+
+const DROUGHT_COLORS = {
+  D0: "#ffff00", D1: "#fcd37f", D2: "#ffaa00", D3: "#e60000", D4: "#730000",
+};
+
+const droughtMap = L.map("droughtMap", {
+  zoomSnap: 0.25,
+  scrollWheelZoom: false,
+}).setView([33.21, -97.65], 9.5);
+
+L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
+  attribution: "&copy; OpenStreetMap, &copy; CARTO",
+  subdomains: "abcd",
+}).addTo(droughtMap);
+
+let monthList = [];
+let droughtFeaturesByMonth = {};
+let droughtLayer = null;
+let mapPlayInterval = null;
+
+Promise.all([
+  fetch("wise_county.geojson").then(r => r.json()),
+  fetch("wise_drought_monthly.geojson").then(r => r.json()),
+]).then(([countyGeojson, droughtGeojson]) => {
+  const countyLayer = L.geoJSON(countyGeojson, {
+    style: { color: "#e6edf3", weight: 2, opacity: 0.9, fillOpacity: 0 },
+  }).addTo(droughtMap);
+  droughtMap.fitBounds(countyLayer.getBounds(), { padding: [10, 10] });
+
+  droughtGeojson.features.forEach(f => {
+    const m = f.properties.month;
+    (droughtFeaturesByMonth[m] = droughtFeaturesByMonth[m] || []).push(f);
+  });
+  monthList = Object.keys(droughtFeaturesByMonth).sort();
+
+  const slider = document.getElementById("mapSlider");
+  slider.max = monthList.length - 1;
+  document.getElementById("mapMonthMin").textContent = monthList[0];
+  document.getElementById("mapMonthMax").textContent = monthList[monthList.length - 1];
+
+  L.circleMarker([33.4014, -97.5673], {
+    radius: 6, color: "#0d1117", weight: 2, fillColor: "#e6edf3", fillOpacity: 1,
+  }).bindTooltip("CLBJ (NEON tower)").addTo(droughtMap);
+
+  renderMonth(monthList.length - 1);
+  slider.value = monthList.length - 1;
+});
+
+function renderMonth(idx) {
+  const month = monthList[idx];
+  document.getElementById("mapMonthDisplay").textContent = month;
+  if (droughtLayer) { droughtMap.removeLayer(droughtLayer); }
+  const features = (droughtFeaturesByMonth[month] || []).filter(f => f.properties.category !== "None");
+  droughtLayer = L.geoJSON({ type: "FeatureCollection", features }, {
+    style: f => ({
+      color: DROUGHT_COLORS[f.properties.category] || "#888",
+      weight: 0,
+      fillColor: DROUGHT_COLORS[f.properties.category] || "#888",
+      fillOpacity: 0.7,
+    }),
+  }).addTo(droughtMap);
+}
+
+document.getElementById("mapSlider").addEventListener("input", e => renderMonth(parseInt(e.target.value)));
+
+document.getElementById("mapPlayBtn").addEventListener("click", () => {
+  const btn = document.getElementById("mapPlayBtn");
+  const slider = document.getElementById("mapSlider");
+  if (mapPlayInterval) {
+    clearInterval(mapPlayInterval);
+    mapPlayInterval = null;
+    btn.innerHTML = "&#9654; Play";
+  } else {
+    btn.innerHTML = "&#10074;&#10074; Pause";
+    mapPlayInterval = setInterval(() => {
+      let next = parseInt(slider.value) + 1;
+      if (next > parseInt(slider.max)) next = 0;
+      slider.value = next;
+      renderMonth(next);
+    }, 900);
+  }
+});
 
 let chart = null;
 let DATA = null;

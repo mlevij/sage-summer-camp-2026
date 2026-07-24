@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "wise_county",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "STATEFP": "48", "COUNTYFP": "497", "COUNTYNS": "01384034", "AFFGEOID": "0500000US48497", "GEOID": "48497", "NAME": "Wise", "NAMELSAD": "Wise County", "STUSPS": "TX", "STATE_NAME": "Texas", "LSAD": "06", "ALAND": 2342372272, "AWATER": 47035843 }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -97.920371, 33.099328 ], [ -97.918189, 33.433873 ], [ -97.487065, 33.433681 ], [ -97.405268, 33.433095 ], [ -97.383095, 33.43045 ], [ -97.390828, 33.245787 ], [ -97.391606, 33.218935 ], [ -97.398459, 32.991732 ], [ -97.544181, 32.994177 ], [ -97.921642, 33.001284 ], [ -97.920371, 33.099328 ] ] ] } }
+]
+}

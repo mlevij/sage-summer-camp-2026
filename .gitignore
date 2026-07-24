@@ -1,0 +1,5 @@
+.Rhistory
+session-notes/
+scripts/pipeline/shapefile_cache/
+scripts/pipeline/cb_2022_us_county_20m.zip
+__pycache__/

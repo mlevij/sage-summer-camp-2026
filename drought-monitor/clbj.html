@@ -401,6 +401,14 @@ const droughtMap = L.map("droughtMap", {
   scrollWheelZoom: true,
 }).setView([33.21, -97.65], 9.5);
 
+// Dedicated pane above both the default overlayPane (drought polygons, county
+// outline) and markerPane -- guarantees the CLBJ marker always renders on top,
+// regardless of DOM insertion order (the drought layer gets removed/re-added on
+// every month change, which would otherwise let it end up on top of a same-pane
+// SVG layer like circleMarker).
+droughtMap.createPane("clbjMarkerPane");
+droughtMap.getPane("clbjMarkerPane").style.zIndex = 650;
+
 // Below this zoom, swap the detailed tower icon for a plain dot -- at very
 // zoomed-out views the tower silhouette is too small/cluttered to read anyway.
 const TOWER_MIN_ZOOM = 13;
@@ -442,11 +450,14 @@ Promise.all([
   document.getElementById("mapMonthMin").textContent = monthList[0];
   document.getElementById("mapMonthMax").textContent = monthList[monthList.length - 1];
 
-  clbjMarker = L.marker([33.4014, -97.5673], { icon: buildTowerIcon(droughtMap.getZoom()) })
-    .bindTooltip("CLBJ (NEON tower)");
+  const clbjSiteUrl = "https://www.neonscience.org/field-sites/clbj";
+  clbjMarker = L.marker([33.4014, -97.5673], { icon: buildTowerIcon(droughtMap.getZoom()), pane: "clbjMarkerPane" })
+    .bindTooltip("CLBJ (NEON tower)")
+    .on("click", () => window.open(clbjSiteUrl, "_blank"));
   clbjCircleMarker = L.circleMarker([33.4014, -97.5673], {
-    radius: 6, color: "#0d1117", weight: 2, fillColor: "#e6edf3", fillOpacity: 1,
-  }).bindTooltip("CLBJ (NEON tower)");
+    radius: 6, color: "#0d1117", weight: 0.8, fillColor: "#e6edf3", fillOpacity: 1, pane: "clbjMarkerPane",
+  }).bindTooltip("CLBJ (NEON tower)")
+    .on("click", () => window.open(clbjSiteUrl, "_blank"));
 
   updateClbjMarkerForZoom();
   droughtMap.on("zoomend", updateClbjMarkerForZoom);

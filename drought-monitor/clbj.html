@@ -401,9 +401,8 @@ const droughtMap = L.map("droughtMap", {
   scrollWheelZoom: false,
 }).setView([33.21, -97.65], 9.5);
 
-L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
-  attribution: "&copy; OpenStreetMap, &copy; CARTO",
-  subdomains: "abcd",
+L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}", {
+  attribution: "Esri World Topo Map",
 }).addTo(droughtMap);
 
 let monthList = [];
@@ -416,7 +415,7 @@ Promise.all([
   fetch("wise_drought_monthly.geojson").then(r => r.json()),
 ]).then(([countyGeojson, droughtGeojson]) => {
   const countyLayer = L.geoJSON(countyGeojson, {
-    style: { color: "#e6edf3", weight: 2, opacity: 0.9, fillOpacity: 0 },
+    style: { color: "#222", weight: 2, opacity: 0.85, fillOpacity: 0 },
   }).addTo(droughtMap);
   droughtMap.fitBounds(countyLayer.getBounds(), { padding: [10, 10] });
 
@@ -431,9 +430,13 @@ Promise.all([
   document.getElementById("mapMonthMin").textContent = monthList[0];
   document.getElementById("mapMonthMax").textContent = monthList[monthList.length - 1];
 
-  L.circleMarker([33.4014, -97.5673], {
-    radius: 6, color: "#0d1117", weight: 2, fillColor: "#e6edf3", fillOpacity: 1,
-  }).bindTooltip("CLBJ (NEON tower)").addTo(droughtMap);
+  const towerIcon = L.icon({
+    iconUrl: "neon-tower.png",
+    iconSize: [49, 60],
+    iconAnchor: [25, 60],
+    tooltipAnchor: [0, -55],
+  });
+  L.marker([33.4014, -97.5673], { icon: towerIcon }).bindTooltip("CLBJ (NEON tower)").addTo(droughtMap);
 
   renderMonth(monthList.length - 1);
   slider.value = monthList.length - 1;

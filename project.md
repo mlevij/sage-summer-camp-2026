@@ -4,69 +4,28 @@
 **Affiliation:** Department of Soil and Crop Sciences, Colorado State University
 **Workshop:** Sage Grande — Summer of AI, July 20–28, 2026, UIC Electronic Visualization Laboratory, Chicago, IL
 
-## Big Question
+This project is my own thread within a larger team effort — see below for the group's work, and how mine builds on it. (Full day-by-day session logs live in private project notes, not here — this is the condensed version.)
 
-How can AI at the edge inform an effort to validate remote sensing products with in situ environmental monitoring?
+## The Group's Project
 
-## Background
+Along with John Blackwell, Di Fan, and Atefah Hosseini, we built **"Multimodal Drought Early Warning at the Edge"** — a research prototype that fuses NEON sensor histories with PhenoCam imagery to estimate current drought conditions at NEON's CLBJ site (Texas) and produce short-term outlooks. The real design constraint the team built around: sensors and images don't all arrive at the same time, so the system tracks what's actually present, what's delayed, and updates its read as new data comes in — rather than requiring a fully synced record before it'll say anything. A vision-language model handles the natural-language explanation layer, kept deliberately separate from the numerical forecast itself, so the science doesn't depend on the LLM to be right. It's running on a Thor edge node now, with historical replay and live-forecast modes.
 
-My work sits at the intersection of two things I already maintain independently:
+Early result: environmental sensors carry more weight for straightforward meteorological (precipitation-defined) drought, while imagery earns its keep more when sensor coverage is thin or the question shifts toward vegetation/ecosystem response rather than rainfall alone. Full details in the team's own writeup: [`sage_drought_early_warning_public_draft.md`](https://github.com/difan1995/sage-summer-camp-2026/blob/main/sage_drought_early_warning_public_draft.md).
 
-- **In situ sensor networks**: an existing pipeline pulling and mapping live data from CoAgMET, RAWS, SNOTEL, and Zentra soil moisture stations across Colorado (ArcGIS/R/Python, automated via GitHub Actions).
-- **Remote sensing / soil science**: SSURGO-based soil property estimation, including field capacity modeling (Saxton-Rawls, Bagnall) and work with satellite-derived land/soil products via Google Earth Engine.
+## My Piece: Does the Satellite Signal Actually Track the Ground Truth?
 
-My thesis direction is validating remote sensing soil moisture products against in situ monitoring — i.e., how well do satellite-derived estimates track what ground sensors actually measure, and where/why do they diverge.
+The team's system leans on PhenoCam imagery for its visual read. My own background is the other half of that same question — I already run an in-situ sensor pipeline (CoAgMET/RAWS/SNOTEL/Zentra soil moisture across Colorado) and do SSURGO-based soil modeling with satellite land/soil products via Google Earth Engine. So off the back of the team's CLBJ work, I asked a narrower question: **before you trust a satellite-derived signal as a stand-in for ground sensors, does it actually track them — and where does it not?**
 
-## Why Sage
+**What I built:**
+- A dashboard of CLBJ's own NEON soil water content by depth, with wilting point/field capacity/saturation reference zones computed via SSURGO + Saxton-Rawls (an earlier attempt using NEON's own Megapit soil data gave physically implausible results — its organic-matter estimate was outside the formula's valid range — so I pivoted to SSURGO instead). Live at mlevij.com, plus a Leaflet timelapse of the county's real USDM drought history (spatially clipped, not flattened to one color per week) and four more environmental charts.
+- A Sentinel-2 spectral-extraction pipeline (2017–2026, all 12 usable bands, cloud-masked, six vegetation/moisture indices) built specifically to let the data tell me which bands/indices actually predict drought at this site, instead of assuming NDVI is automatically the right answer. Caught and fixed a real bug along the way — a coordinate-system mismatch was silently producing 100% empty output on the first run, plus a couple of formula errors (wrong band in the NDWI calc, non-standard EVI coefficients) found in the same pass.
 
-Sage/Waggle nodes are edge-AI platforms with real onboard compute (not just low-power sensors) sitting in the field. That raises a concrete question for this workshop: can edge inference be used to add context, QA, or derived products to a remote-sensing-validation pipeline in near real time, rather than validation only happening after the fact in a downstream analysis?
+**What I found, and why it's actually interesting:** correlating against bulk soil moisture (averaged across all 8 depths) turned up nothing significant. But re-running against individual sensor depths flipped the story — NDMI and EVI correlate with the **deepest** sensors (rho≈0.60), not the shallow ones, with near-surface moisture behaving like noise. The reason ties back to the site itself: CLBJ isn't open grassland despite the "National Grassland" name — it's Cross Timbers, an oak woodland-prairie mosaic. Deep-rooted oaks pull water from 1-2m down, so canopy water content (what NDMI/EVI actually measure) tracks deep soil moisture, not the surface layer that responds to individual rain events. NDVI stays flat because it saturates fast under closed woody canopy. A literature check backs the mechanism (NDMI's NIR+SWIR design is built for exactly this, EVI is an established strong performer against in-situ soil moisture, and root-zone literature specifically recommends deep/integrated moisture products for mixed woody-vegetation sites like this one) — with the honest caveat that the deep-root/deep-moisture relationship isn't universally clean across ecosystems, so I'm treating this as a well-explained finding at CLBJ specifically, not a rule to assume carries over to the next NEON site.
 
-## Workshop Progress Log
-
-### Day 0 prep (June 29 – July 18, 2026)
-Completed a self-directed 4-phase syllabus ahead of the workshop: Linux/SSH fundamentals, Docker, running AI models locally (Ollama, quantization, Hugging Face `transformers`), and a Sage platform preview (`sage_data_client`, live queries against Sage's public API). Also completed the pre-arrival checklist, including installing and configuring **Hermes** (Nous Research's agent shell) on node **H02E**, wired to NVIDIA NIM (`z-ai/glm-5.2`).
-
-### Day 1 (July 20, 2026)
-Verified the full node-access loop end to end: SSH into H02E → tmux session → Hermes agent running and taking real actions on the node. Used Hermes to run a live sensor inventory on H02E — confirmed the node's onboard sensing is currently limited to power/thermal monitoring (no registered soil, weather, or camera sensors in `node-manifest-v2.json`), with a still-unidentified FT232 serial device on `/dev/ttyUSB0` (possibly GPS) worth following up on.
-
-### Day 2 (July 21, 2026)
-Completed the Sage "edge app" tutorial end to end — built a mean-color plugin, deployed it to H02E via `pluginctl`, and confirmed real published output on Sage's public data API. Swapped it over to pull from a live workshop RTSP camera feed instead of a static test image.
-
-Kicked off a second, larger workstream: a NEON drought-monitor project with fellow participants John Blackwell, Di Fan and Atefah Hosseini, targeting NEON's CPER field site initially. Goal: pull sensor (and eventually imagery) data, train a multimodal drought-early-warning model, and deploy it for edge inference on a Sage Thor Blade node already placed at CPER (currently blocked by a node connectivity issue, unrelated to this workshop's own H02E/H037/H019 access). Scoped the data-acquisition approach (rate limits, resolution/size tradeoffs) and read the Thor Blade deployment spec to confirm the target node has enough onboard storage/compute for the full pipeline.
-
-### Day 3 (July 22, 2026)
-Built a dashboard showing NEON soil water content by depth with per-depth wilting point / field capacity / saturation reference zones. First attempt used NEON's own Megapit soil-pit product for the underlying texture data — abandoned after the results proved physically implausible (organic matter far outside the Saxton-Rawls formula's valid domain). Pivoted to SSURGO texture data at the site's exact soil-pit coordinates instead, which produced sane, physically plausible values. Shipped the first working dashboard, live on mlevij.com.
-
-Mid-session, the target site changed from CPER (Colorado) to **CLBJ** (Lyndon B. Johnson National Grassland, Texas). Rebuilt the pipeline end to end against CLBJ's own coordinates, soil series, and sensor depths — including switching from a Colorado-only SSURGO geopackage to USDA's national Soil Data Access API — and added daily-resolution aggregation and a date-range selector, both explicit workshop-adjacent asks for a broader "soil health monitor" concept.
-
-### Day 4 (July 23, 2026)
-Published the CLBJ dashboard live on mlevij.com in place of the original CPER page, plus a round of UI polish (clearer WP/FC/saturation zone shading, a site-metadata banner with CLBJ's location and coordinates). Lighter day overall — mostly consolidation before the next push into cross-referencing the sensor data against independent drought data sources.
-
-### Day 5 (July 24, 2026)
-Cross-checked the site's own sensor data against the official NIDIS/USDM drought classification for Wise County, TX — caught and corrected an early misreading of USDM's cumulative (not exclusive) percent-area columns before trusting any conclusions about the site's drought history. Built a Leaflet timelapse map of the county's actual drought history, with real per-category polygons spatially clipped to the county boundary rather than a single flat color per week. Added four more environmental charts (soil temperature, precipitation, air temperature, incoming solar radiation) sourced from a colleague's broader NEON data pull, plus min/max bands around the sensor chart to surface precipitation-driven spikes.
-
-### Day 6 (July 25, 2026)
-Reconfigured the Hermes agent on **H037**, the actual assigned workshop node (previous setup had been on H02E). Discovered a pre-existing NEON phenocam imagery pipeline already built and run on that node from earlier work — a ready-made imagery source for future multimodal modeling, not previously connected to this project's own tracking.
-
-### Day 7 (July 26, 2026)
-Set up durable, off-node project storage (a private Hugging Face dataset repo) so Hermes and the wider project context can persist independent of any one node or session — replacing an earlier, more fragile local-file approach. Set up a Telegram gateway for the agent (currently blocked on a shared-node permissions issue, not yet resolved). Added **CoCoRaHS** (a volunteer precipitation/drought-observation network) as a candidate ground-truth data source alongside USDM and NEON.
-
-Built and successfully ran a Sentinel-2 spectral-extraction pipeline for the CLBJ site (2017–2026, all 12 usable bands, cloud-masked, six candidate vegetation/moisture indices) — explicitly scoped to run genuine empirical feature selection against real ground-truth data, rather than assuming standard indices like NDVI are automatically the most informative for this site.
-
-### Day 8 (July 27, 2026)
-Continuing the empirical feature-selection step: merging the Sentinel-2 spectral time series with NEON sensor and USDM drought data to determine which indices actually correlate with observed drought conditions at CLBJ. Began evaluating **domain-adapted remote-sensing vision-language models** (e.g., a Qwen2.5-VL checkpoint specifically fine-tuned on remote-sensing visual instructions) as a stronger, better-targeted alternative to the originally-proposed generic Qwen-VL for the eventual multimodal fusion model.
-
-A code review before trusting the pipeline's first "success" claim caught a real bug: a coordinate-reference-system mismatch (WGS84 lat/lon passed directly into a raster window expecting native UTM coordinates) had silently produced 100% NaN output across every band. Fixed (reprojection, a DN-to-reflectance scale factor, and two further formula errors — a wrong band in the NDWI calculation and non-standard EVI coefficients, both caught in the same pass), verified on individual test scenes before re-running the full extraction, then correlated against bulk soil moisture: nothing reached statistical significance (n=48 months), with red-edge/green bands (B06, B03) the closest at p≈0.06.
-
-### Day 9 (July 28, 2026)
-Re-ran the correlation against individual sensor depths instead of the bulk soil-moisture average, on the hypothesis that averaging across all 8 depths (down to 196cm) was diluting a real surface-driven signal. Result: the opposite of that hypothesis, and more interesting — the strongest correlation (rho≈0.60) showed up between NDMI/EVI and the **deepest** sensors, not the shallowest, with near-surface soil moisture behaving more like noise.
-
-The explanation ties back to the site's actual vegetation: CLBJ ("National Grassland" is a land-management designation, not a vegetation description) sits in the Cross Timbers ecoregion, a post oak/blackjack oak woodland-prairie mosaic, not open grassland. Deep-rooted oaks draw water from 1-2m depth, so canopy water content (what NDMI and EVI actually measure) tracks deep soil moisture rather than the surface-rainfall-driven shallow layer; NDVI stays comparatively flat because it saturates quickly in closed woody canopy. A literature check the same day supported the core mechanism — NDMI's NIR+SWIR design is specifically built to isolate vegetation water content, EVI is an established strong performer against in-situ soil moisture in prior studies, and root-zone soil moisture literature specifically recommends *integrated deep* moisture products (rather than shallow-sensitive ones) for sites with mixed deep-rooted woody vegetation over a shallow-rooted understory — while also flagging that the deep-root/deep-moisture relationship is not universally clean across ecosystems, so this is treated as a well-supported site-specific finding rather than an assumed general rule for future NEON sites.
+**Where this is headed**: lag analysis next (soil moisture typically peaks a week or two after the rain event that also greens up the canopy), then feeding whichever spectral features actually earn their place into the team's fusion model as a validated input, rather than a hand-picked one.
 
 ## Open Questions
 
 - Ground-truth/drought-label source for model training: USDM categories, computed SPI/SPEI, soil-moisture percentile thresholds, and/or CoCoRaHS — not yet decided.
-- Multimodal fusion architecture: how to combine dense sensor/spectral time series with image-based (phenocam/satellite) inputs — including whether a domain-adapted remote-sensing VLM is a better foundation than a generic vision-language model.
-- What would a minimal edge plugin look like that flags or contextualizes disagreement between a remote sensing product and a nearby in situ reading?
-- How does Sage's data model (published measurements + Beehive) fit alongside an existing non-Sage pipeline (CoAgMET/RAWS/SNOTEL/Zentra)?
-- Resolving the CPER Thor Blade node's connectivity issue, which blocks real end-to-end edge deployment testing for the drought-monitor model specifically.
+- Whether a domain-adapted remote-sensing vision-language model (vs. a generic one) is the better foundation for the team's fusion model, given how narrow NDVI's blind spot turned out to be at this specific site.
+- Resolving the CPER Thor Blade node's connectivity issue, which blocks real end-to-end edge deployment testing for the remote-sensing-validation side specifically.

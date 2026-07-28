@@ -1,0 +1,3981 @@
+[
+  {
+    "date": "2026-07-22",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2026-07-22",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2026-07-12",
+    "status": "skipped",
+    "reason": "clean_fraction=0.007 below 0.5",
+    "clean_fraction": 0.007
+  },
+  {
+    "date": "2026-07-07",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2026-07-07",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2026-07-04",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2026-07-04",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2026-07-02",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2026-07-02",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2026-06-27",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2026-06-27",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2026-06-22",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2026-06-22",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2026-06-17",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2026-06-17",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2026-05-08",
+    "status": "skipped",
+    "reason": "clean_fraction=0.464 below 0.5",
+    "clean_fraction": 0.464
+  },
+  {
+    "date": "2026-05-03",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2026-05-03",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2026-04-08",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2026-04-08",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2026-03-29",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2026-03-29",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2026-03-26",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2026-03-26",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2026-03-24",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2026-03-24",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2026-03-19",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2026-03-19",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2026-03-14",
+    "status": "skipped",
+    "reason": "clean_fraction=0.000 below 0.5",
+    "clean_fraction": 0.0
+  },
+  {
+    "date": "2026-02-27",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2026-02-27",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2026-02-22",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2026-02-22",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2026-02-12",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2026-02-12",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2026-02-07",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2026-02-07",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2026-02-02",
+    "status": "kept",
+    "clean_fraction": 0.916
+  },
+  {
+    "date": "2026-02-02",
+    "status": "kept",
+    "clean_fraction": 0.916
+  },
+  {
+    "date": "2026-01-28",
+    "status": "skipped",
+    "reason": "clean_fraction=0.062 below 0.5",
+    "clean_fraction": 0.062
+  },
+  {
+    "date": "2026-01-28",
+    "status": "skipped",
+    "reason": "clean_fraction=0.062 below 0.5",
+    "clean_fraction": 0.062
+  },
+  {
+    "date": "2026-01-08",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2026-01-03",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2026-01-03",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-12-26",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-12-26",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-12-24",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-12-24",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-12-14",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-12-09",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-12-09",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-11-14",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-11-14",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-11-09",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-11-09",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-11-04",
+    "status": "skipped",
+    "reason": "clean_fraction=0.000 below 0.5",
+    "clean_fraction": 0.0
+  },
+  {
+    "date": "2025-11-04",
+    "status": "skipped",
+    "reason": "clean_fraction=0.000 below 0.5",
+    "clean_fraction": 0.0
+  },
+  {
+    "date": "2025-10-30",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-10-30",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-10-27",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-10-20",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-10-20",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-10-15",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-10-15",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-10-10",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-10-10",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-10-07",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-10-07",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-10-05",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-10-05",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-09-25",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-09-25",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-09-17",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-09-17",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-09-15",
+    "status": "skipped",
+    "reason": "clean_fraction=0.000 below 0.5",
+    "clean_fraction": 0.0
+  },
+  {
+    "date": "2025-09-10",
+    "status": "skipped",
+    "reason": "clean_fraction=0.000 below 0.5",
+    "clean_fraction": 0.0
+  },
+  {
+    "date": "2025-08-28",
+    "status": "skipped",
+    "reason": "clean_fraction=0.304 below 0.5",
+    "clean_fraction": 0.304
+  },
+  {
+    "date": "2025-08-21",
+    "status": "skipped",
+    "reason": "clean_fraction=0.165 below 0.5",
+    "clean_fraction": 0.165
+  },
+  {
+    "date": "2025-08-21",
+    "status": "skipped",
+    "reason": "clean_fraction=0.397 below 0.5",
+    "clean_fraction": 0.397
+  },
+  {
+    "date": "2025-08-16",
+    "status": "kept",
+    "clean_fraction": 0.921
+  },
+  {
+    "date": "2025-08-16",
+    "status": "kept",
+    "clean_fraction": 0.921
+  },
+  {
+    "date": "2025-08-11",
+    "status": "skipped",
+    "reason": "clean_fraction=0.000 below 0.5",
+    "clean_fraction": 0.0
+  },
+  {
+    "date": "2025-08-08",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-08-08",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-08-06",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-08-06",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-07-22",
+    "status": "skipped",
+    "reason": "clean_fraction=0.010 below 0.5",
+    "clean_fraction": 0.01
+  },
+  {
+    "date": "2025-07-22",
+    "status": "skipped",
+    "reason": "clean_fraction=0.010 below 0.5",
+    "clean_fraction": 0.01
+  },
+  {
+    "date": "2025-07-19",
+    "status": "skipped",
+    "reason": "clean_fraction=0.270 below 0.5",
+    "clean_fraction": 0.27
+  },
+  {
+    "date": "2025-07-19",
+    "status": "kept",
+    "clean_fraction": 0.792
+  },
+  {
+    "date": "2025-07-17",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-06-29",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-06-29",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-06-27",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-06-22",
+    "status": "skipped",
+    "reason": "clean_fraction=0.000 below 0.5",
+    "clean_fraction": 0.0
+  },
+  {
+    "date": "2025-06-22",
+    "status": "skipped",
+    "reason": "clean_fraction=0.000 below 0.5",
+    "clean_fraction": 0.0
+  },
+  {
+    "date": "2025-06-17",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-06-17",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-06-09",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-06-09",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-06-02",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-06-02",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-05-23",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-05-23",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-05-20",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-05-20",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-05-13",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-05-13",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-05-03",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-05-03",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-04-13",
+    "status": "skipped",
+    "reason": "clean_fraction=0.000 below 0.5",
+    "clean_fraction": 0.0
+  },
+  {
+    "date": "2025-04-10",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-04-10",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-04-08",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-04-08",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-03-29",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-03-29",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-03-24",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-03-24",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-03-21",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-03-21",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-03-19",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-03-19",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-03-14",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-03-14",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-03-04",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-03-04",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-02-27",
+    "status": "skipped",
+    "reason": "clean_fraction=0.000 below 0.5",
+    "clean_fraction": 0.0
+  },
+  {
+    "date": "2025-02-17",
+    "status": "skipped",
+    "reason": "clean_fraction=0.000 below 0.5",
+    "clean_fraction": 0.0
+  },
+  {
+    "date": "2025-02-17",
+    "status": "skipped",
+    "reason": "clean_fraction=0.000 below 0.5",
+    "clean_fraction": 0.0
+  },
+  {
+    "date": "2025-02-02",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-02-02",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-01-23",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-01-23",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-01-18",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-01-18",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-01-13",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-01-13",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-01-08",
+    "status": "skipped",
+    "reason": "clean_fraction=0.000 below 0.5",
+    "clean_fraction": 0.0
+  },
+  {
+    "date": "2025-01-03",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2025-01-03",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-12-29",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-12-19",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-12-19",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-12-14",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-12-14",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-12-09",
+    "status": "skipped",
+    "reason": "clean_fraction=0.000 below 0.5",
+    "clean_fraction": 0.0
+  },
+  {
+    "date": "2024-11-29",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-11-29",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-11-24",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-11-19",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-11-19",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-11-14",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-11-14",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-11-09",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-11-09",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-10-25",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-10-25",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-10-20",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-10-20",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-10-15",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-10-15",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-10-10",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-10-10",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-10-05",
+    "status": "skipped",
+    "reason": "clean_fraction=0.263 below 0.5",
+    "clean_fraction": 0.263
+  },
+  {
+    "date": "2024-09-30",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-09-30",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-09-25",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-09-20",
+    "status": "kept",
+    "clean_fraction": 0.947
+  },
+  {
+    "date": "2024-09-20",
+    "status": "kept",
+    "clean_fraction": 0.947
+  },
+  {
+    "date": "2024-09-10",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-09-10",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-08-26",
+    "status": "kept",
+    "clean_fraction": 0.737
+  },
+  {
+    "date": "2024-08-21",
+    "status": "skipped",
+    "reason": "clean_fraction=0.278 below 0.5",
+    "clean_fraction": 0.278
+  },
+  {
+    "date": "2024-08-21",
+    "status": "skipped",
+    "reason": "clean_fraction=0.318 below 0.5",
+    "clean_fraction": 0.318
+  },
+  {
+    "date": "2024-08-16",
+    "status": "skipped",
+    "reason": "clean_fraction=0.000 below 0.5",
+    "clean_fraction": 0.0
+  },
+  {
+    "date": "2024-08-16",
+    "status": "skipped",
+    "reason": "clean_fraction=0.005 below 0.5",
+    "clean_fraction": 0.005
+  },
+  {
+    "date": "2024-08-06",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-08-06",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-08-01",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-08-01",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-07-12",
+    "status": "skipped",
+    "reason": "clean_fraction=0.000 below 0.5",
+    "clean_fraction": 0.0
+  },
+  {
+    "date": "2024-07-12",
+    "status": "skipped",
+    "reason": "clean_fraction=0.000 below 0.5",
+    "clean_fraction": 0.0
+  },
+  {
+    "date": "2024-07-02",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-07-02",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-06-27",
+    "status": "kept",
+    "clean_fraction": 0.677
+  },
+  {
+    "date": "2024-06-27",
+    "status": "kept",
+    "clean_fraction": 0.715
+  },
+  {
+    "date": "2024-06-22",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-06-22",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-06-07",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-06-07",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-06-07",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-06-07",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-05-28",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-05-23",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-05-18",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-05-18",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-05-08",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-05-08",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-04-13",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-04-13",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-04-03",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-04-03",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-03-29",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-03-19",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-03-19",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-03-09",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-03-09",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-02-23",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-02-23",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-02-18",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-02-18",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-02-13",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-02-13",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-02-08",
+    "status": "skipped",
+    "reason": "clean_fraction=0.000 below 0.5",
+    "clean_fraction": 0.0
+  },
+  {
+    "date": "2024-01-29",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-01-19",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-01-19",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-01-09",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2024-01-09",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-12-30",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-12-30",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-12-25",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-12-25",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-12-10",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-12-10",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-12-10",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-12-05",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-12-05",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-12-05",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-12-05",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-11-25",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-11-20",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-11-20",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-11-20",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-11-20",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-11-15",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-11-15",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-11-15",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-11-15",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-11-05",
+    "status": "skipped",
+    "reason": "clean_fraction=0.000 below 0.5",
+    "clean_fraction": 0.0
+  },
+  {
+    "date": "2023-11-05",
+    "status": "skipped",
+    "reason": "clean_fraction=0.000 below 0.5",
+    "clean_fraction": 0.0
+  },
+  {
+    "date": "2023-11-05",
+    "status": "skipped",
+    "reason": "clean_fraction=0.000 below 0.5",
+    "clean_fraction": 0.0
+  },
+  {
+    "date": "2023-11-05",
+    "status": "skipped",
+    "reason": "clean_fraction=0.000 below 0.5",
+    "clean_fraction": 0.0
+  },
+  {
+    "date": "2023-10-31",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-10-31",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-10-31",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-10-31",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-10-26",
+    "status": "kept",
+    "clean_fraction": 0.986
+  },
+  {
+    "date": "2023-10-26",
+    "status": "kept",
+    "clean_fraction": 0.986
+  },
+  {
+    "date": "2023-10-26",
+    "status": "kept",
+    "clean_fraction": 0.986
+  },
+  {
+    "date": "2023-10-26",
+    "status": "kept",
+    "clean_fraction": 0.986
+  },
+  {
+    "date": "2023-10-16",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-10-16",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-10-06",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-10-06",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-10-06",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-09-26",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-09-26",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-09-06",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-09-06",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-09-06",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-09-06",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-09-01",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-09-01",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-09-01",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-09-01",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-08-27",
+    "status": "kept",
+    "clean_fraction": 0.711
+  },
+  {
+    "date": "2023-08-27",
+    "status": "kept",
+    "clean_fraction": 0.691
+  },
+  {
+    "date": "2023-08-22",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-08-22",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-08-22",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-08-22",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-08-17",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-08-17",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-08-17",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-08-17",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-08-12",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-08-12",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-08-02",
+    "status": "skipped",
+    "reason": "clean_fraction=0.000 below 0.5",
+    "clean_fraction": 0.0
+  },
+  {
+    "date": "2023-08-02",
+    "status": "skipped",
+    "reason": "clean_fraction=0.000 below 0.5",
+    "clean_fraction": 0.0
+  },
+  {
+    "date": "2023-08-02",
+    "status": "skipped",
+    "reason": "clean_fraction=0.000 below 0.5",
+    "clean_fraction": 0.0
+  },
+  {
+    "date": "2023-08-02",
+    "status": "skipped",
+    "reason": "clean_fraction=0.000 below 0.5",
+    "clean_fraction": 0.0
+  },
+  {
+    "date": "2023-07-28",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-07-28",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-07-28",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-07-28",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-07-23",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-07-23",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-07-23",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-07-23",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-07-18",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-07-18",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-07-13",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-07-13",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-07-03",
+    "status": "kept",
+    "clean_fraction": 0.622
+  },
+  {
+    "date": "2023-06-28",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-06-28",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-06-28",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-06-28",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-06-18",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-06-18",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-06-08",
+    "status": "skipped",
+    "reason": "clean_fraction=0.333 below 0.5",
+    "clean_fraction": 0.333
+  },
+  {
+    "date": "2023-06-08",
+    "status": "skipped",
+    "reason": "clean_fraction=0.333 below 0.5",
+    "clean_fraction": 0.333
+  },
+  {
+    "date": "2023-05-24",
+    "status": "skipped",
+    "reason": "clean_fraction=0.000 below 0.5",
+    "clean_fraction": 0.0
+  },
+  {
+    "date": "2023-05-24",
+    "status": "skipped",
+    "reason": "clean_fraction=0.000 below 0.5",
+    "clean_fraction": 0.0
+  },
+  {
+    "date": "2023-05-19",
+    "status": "skipped",
+    "reason": "clean_fraction=0.050 below 0.5",
+    "clean_fraction": 0.05
+  },
+  {
+    "date": "2023-05-09",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-04-29",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-04-29",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-04-29",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-04-29",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-03-25",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-03-25",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-03-25",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-03-25",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-03-15",
+    "status": "skipped",
+    "reason": "clean_fraction=0.000 below 0.5",
+    "clean_fraction": 0.0
+  },
+  {
+    "date": "2023-03-15",
+    "status": "skipped",
+    "reason": "clean_fraction=0.000 below 0.5",
+    "clean_fraction": 0.0
+  },
+  {
+    "date": "2023-03-10",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-03-10",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-03-10",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-03-10",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-03-05",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-03-05",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-03-05",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-03-05",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-02-23",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-02-03",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-02-03",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-02-03",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-02-03",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-01-19",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-01-19",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-01-19",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-01-19",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-01-09",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-01-09",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-01-04",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-01-04",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-01-04",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2023-01-04",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-12-25",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-12-25",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-12-20",
+    "status": "kept",
+    "clean_fraction": 0.971
+  },
+  {
+    "date": "2022-12-20",
+    "status": "kept",
+    "clean_fraction": 0.964
+  },
+  {
+    "date": "2022-12-20",
+    "status": "kept",
+    "clean_fraction": 0.964
+  },
+  {
+    "date": "2022-12-15",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-12-15",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-12-05",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-11-30",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-11-30",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-11-20",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-11-05",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-11-05",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-10-26",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-10-26",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-10-21",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-10-21",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-10-06",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-10-06",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-10-01",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-10-01",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-10-01",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-10-01",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-09-26",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-09-26",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-09-21",
+    "status": "kept",
+    "clean_fraction": 0.694
+  },
+  {
+    "date": "2022-09-21",
+    "status": "kept",
+    "clean_fraction": 0.648
+  },
+  {
+    "date": "2022-09-21",
+    "status": "kept",
+    "clean_fraction": 0.694
+  },
+  {
+    "date": "2022-09-21",
+    "status": "kept",
+    "clean_fraction": 0.648
+  },
+  {
+    "date": "2022-09-16",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-09-16",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-09-16",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-09-16",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-09-11",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-09-11",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-09-11",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-09-11",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-09-06",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-09-06",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-08-17",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-08-17",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-08-12",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-08-12",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-08-07",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-08-07",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-08-07",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-08-07",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-08-02",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-08-02",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-08-02",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-08-02",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-07-28",
+    "status": "skipped",
+    "reason": "clean_fraction=0.000 below 0.5",
+    "clean_fraction": 0.0
+  },
+  {
+    "date": "2022-07-28",
+    "status": "skipped",
+    "reason": "clean_fraction=0.000 below 0.5",
+    "clean_fraction": 0.0
+  },
+  {
+    "date": "2022-07-28",
+    "status": "skipped",
+    "reason": "clean_fraction=0.000 below 0.5",
+    "clean_fraction": 0.0
+  },
+  {
+    "date": "2022-07-28",
+    "status": "skipped",
+    "reason": "clean_fraction=0.000 below 0.5",
+    "clean_fraction": 0.0
+  },
+  {
+    "date": "2022-07-23",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-07-23",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-07-18",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-07-18",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-07-18",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-07-18",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-07-13",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-07-13",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-07-13",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-07-13",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-07-08",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-07-08",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-07-03",
+    "status": "kept",
+    "clean_fraction": 0.993
+  },
+  {
+    "date": "2022-06-23",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-06-23",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-06-18",
+    "status": "skipped",
+    "reason": "clean_fraction=0.041 below 0.5",
+    "clean_fraction": 0.041
+  },
+  {
+    "date": "2022-06-18",
+    "status": "skipped",
+    "reason": "clean_fraction=0.041 below 0.5",
+    "clean_fraction": 0.041
+  },
+  {
+    "date": "2022-06-18",
+    "status": "skipped",
+    "reason": "clean_fraction=0.050 below 0.5",
+    "clean_fraction": 0.05
+  },
+  {
+    "date": "2022-06-18",
+    "status": "skipped",
+    "reason": "clean_fraction=0.057 below 0.5",
+    "clean_fraction": 0.057
+  },
+  {
+    "date": "2022-06-13",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-06-13",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-05-29",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-05-29",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-05-29",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-05-29",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-05-19",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-05-19",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-05-14",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-05-14",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-05-14",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-05-14",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-05-09",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-05-09",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-05-09",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-05-09",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-04-14",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-04-14",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-04-14",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-04-14",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-04-09",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-04-09",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-04-09",
+    "status": "kept",
+    "clean_fraction": 0.995
+  },
+  {
+    "date": "2022-04-09",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-03-25",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-03-25",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-03-20",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-03-20",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-03-15",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-03-15",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-03-15",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-03-15",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-03-10",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-03-10",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-03-10",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-03-10",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-02-18",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-02-18",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-02-18",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-02-18",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-02-13",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-02-13",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-02-08",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-02-08",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-01-29",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-01-29",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2022-01-24",
+    "status": "kept",
+    "clean_fraction": 0.797
+  },
+  {
+    "date": "2021-12-30",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2021-12-30",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2021-11-30",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2021-11-30",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2021-11-25",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2021-11-25",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2021-11-20",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2021-11-20",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2021-11-20",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2021-11-20",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2021-11-15",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2021-11-15",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2021-10-11",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2021-10-11",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2021-10-06",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2021-10-06",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2021-09-26",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2021-09-26",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2021-09-16",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2021-09-16",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2021-09-11",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2021-09-11",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2021-09-06",
+    "status": "kept",
+    "clean_fraction": 0.632
+  },
+  {
+    "date": "2021-09-06",
+    "status": "kept",
+    "clean_fraction": 0.581
+  },
+  {
+    "date": "2021-09-01",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2021-09-01",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2021-08-27",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2021-08-27",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2021-08-22",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2021-08-22",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2021-08-12",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2021-08-12",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2021-08-07",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2021-08-07",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2021-07-28",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2021-07-28",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2021-07-18",
+    "status": "kept",
+    "clean_fraction": 0.99
+  },
+  {
+    "date": "2021-07-18",
+    "status": "kept",
+    "clean_fraction": 0.99
+  },
+  {
+    "date": "2021-07-13",
+    "status": "kept",
+    "clean_fraction": 0.507
+  },
+  {
+    "date": "2021-07-13",
+    "status": "kept",
+    "clean_fraction": 0.507
+  },
+  {
+    "date": "2021-07-08",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2021-07-08",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2021-06-18",
+    "status": "skipped",
+    "reason": "clean_fraction=0.376 below 0.5",
+    "clean_fraction": 0.376
+  },
+  {
+    "date": "2021-06-18",
+    "status": "skipped",
+    "reason": "clean_fraction=0.376 below 0.5",
+    "clean_fraction": 0.376
+  },
+  {
+    "date": "2021-06-13",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2021-05-29",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2021-05-29",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2021-05-14",
+    "status": "skipped",
+    "reason": "clean_fraction=0.000 below 0.5",
+    "clean_fraction": 0.0
+  },
+  {
+    "date": "2021-05-14",
+    "status": "skipped",
+    "reason": "clean_fraction=0.000 below 0.5",
+    "clean_fraction": 0.0
+  },
+  {
+    "date": "2021-05-09",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2021-05-04",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2021-04-19",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2021-03-25",
+    "status": "skipped",
+    "reason": "clean_fraction=0.002 below 0.5",
+    "clean_fraction": 0.002
+  },
+  {
+    "date": "2021-03-25",
+    "status": "skipped",
+    "reason": "clean_fraction=0.002 below 0.5",
+    "clean_fraction": 0.002
+  },
+  {
+    "date": "2021-03-20",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2021-03-20",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2021-03-15",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2021-03-15",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2021-03-05",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2021-02-23",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2021-02-23",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2021-01-29",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2021-01-14",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2021-01-04",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2021-01-04",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-12-25",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-12-25",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-12-20",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-12-20",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-12-10",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-12-10",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-12-05",
+    "status": "skipped",
+    "reason": "clean_fraction=0.055 below 0.5",
+    "clean_fraction": 0.055
+  },
+  {
+    "date": "2020-12-05",
+    "status": "kept",
+    "clean_fraction": 0.522
+  },
+  {
+    "date": "2020-11-30",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-11-30",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-11-25",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-11-25",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-11-20",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-11-15",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-11-15",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-11-10",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-11-10",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-11-05",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-11-05",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-10-31",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-10-31",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-10-21",
+    "status": "kept",
+    "clean_fraction": 0.993
+  },
+  {
+    "date": "2020-10-16",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-10-16",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-10-11",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-10-11",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-10-06",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-10-06",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-10-01",
+    "status": "skipped",
+    "reason": "clean_fraction=0.000 below 0.5",
+    "clean_fraction": 0.0
+  },
+  {
+    "date": "2020-09-26",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-09-26",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-09-21",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-09-06",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-09-06",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-08-27",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-08-27",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-08-22",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-08-22",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-08-17",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-08-12",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-08-12",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-08-07",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-08-07",
+    "status": "kept",
+    "clean_fraction": 0.952
+  },
+  {
+    "date": "2020-08-02",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-08-02",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-07-23",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-07-23",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-07-18",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-07-18",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-07-13",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-07-08",
+    "status": "kept",
+    "clean_fraction": 0.725
+  },
+  {
+    "date": "2020-07-08",
+    "status": "kept",
+    "clean_fraction": 0.725
+  },
+  {
+    "date": "2020-07-03",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-07-03",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-06-18",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-06-13",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-06-13",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-06-08",
+    "status": "kept",
+    "clean_fraction": 0.964
+  },
+  {
+    "date": "2020-06-08",
+    "status": "kept",
+    "clean_fraction": 0.964
+  },
+  {
+    "date": "2020-06-03",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-06-03",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-05-29",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-05-29",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-05-19",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-05-19",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-05-14",
+    "status": "kept",
+    "clean_fraction": 0.545
+  },
+  {
+    "date": "2020-05-09",
+    "status": "kept",
+    "clean_fraction": 0.904
+  },
+  {
+    "date": "2020-05-09",
+    "status": "kept",
+    "clean_fraction": 0.945
+  },
+  {
+    "date": "2020-05-04",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-05-04",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-04-29",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-04-29",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-04-24",
+    "status": "kept",
+    "clean_fraction": 0.998
+  },
+  {
+    "date": "2020-03-25",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-03-25",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-03-10",
+    "status": "skipped",
+    "reason": "clean_fraction=0.000 below 0.5",
+    "clean_fraction": 0.0
+  },
+  {
+    "date": "2020-03-05",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-03-05",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-02-29",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-02-24",
+    "status": "kept",
+    "clean_fraction": 0.983
+  },
+  {
+    "date": "2020-02-14",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-02-14",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-01-20",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-01-20",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-01-05",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2020-01-05",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-12-31",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-12-31",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-12-11",
+    "status": "skipped",
+    "reason": "clean_fraction=0.000 below 0.5",
+    "clean_fraction": 0.0
+  },
+  {
+    "date": "2019-12-06",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-12-06",
+    "status": "kept",
+    "clean_fraction": 0.658
+  },
+  {
+    "date": "2019-12-01",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-12-01",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-11-01",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-11-01",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-10-27",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-10-27",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-10-22",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-10-22",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-10-17",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-10-12",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-10-12",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-10-07",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-10-07",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-10-02",
+    "status": "kept",
+    "clean_fraction": 0.993
+  },
+  {
+    "date": "2019-10-02",
+    "status": "kept",
+    "clean_fraction": 0.993
+  },
+  {
+    "date": "2019-09-27",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-09-27",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-09-17",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-09-17",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-09-12",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-09-12",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-09-07",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-09-07",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-09-02",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-09-02",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-08-28",
+    "status": "kept",
+    "clean_fraction": 0.782
+  },
+  {
+    "date": "2019-08-18",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-08-18",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-08-13",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-07-24",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-07-24",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-07-19",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-07-19",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-07-09",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-07-09",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-07-04",
+    "status": "kept",
+    "clean_fraction": 0.938
+  },
+  {
+    "date": "2019-07-04",
+    "status": "kept",
+    "clean_fraction": 0.935
+  },
+  {
+    "date": "2019-06-29",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-06-29",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-06-24",
+    "status": "skipped",
+    "reason": "clean_fraction=0.249 below 0.5",
+    "clean_fraction": 0.249
+  },
+  {
+    "date": "2019-06-19",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-06-19",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-05-30",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-05-30",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-05-25",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-05-25",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-05-15",
+    "status": "kept",
+    "clean_fraction": 0.78
+  },
+  {
+    "date": "2019-05-15",
+    "status": "kept",
+    "clean_fraction": 0.778
+  },
+  {
+    "date": "2019-05-05",
+    "status": "kept",
+    "clean_fraction": 0.828
+  },
+  {
+    "date": "2019-05-05",
+    "status": "kept",
+    "clean_fraction": 0.828
+  },
+  {
+    "date": "2019-04-25",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-04-25",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-04-20",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-04-20",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-04-15",
+    "status": "kept",
+    "clean_fraction": 0.888
+  },
+  {
+    "date": "2019-04-15",
+    "status": "skipped",
+    "reason": "clean_fraction=0.000 below 0.5",
+    "clean_fraction": 0.0
+  },
+  {
+    "date": "2019-04-05",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-03-26",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-03-26",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-03-21",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-03-21",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-02-24",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-02-24",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-01-30",
+    "status": "skipped",
+    "reason": "clean_fraction=0.000 below 0.5",
+    "clean_fraction": 0.0
+  },
+  {
+    "date": "2019-01-25",
+    "status": "skipped",
+    "reason": "clean_fraction=0.062 below 0.5",
+    "clean_fraction": 0.062
+  },
+  {
+    "date": "2019-01-05",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2019-01-05",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-12-31",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-12-21",
+    "status": "skipped",
+    "reason": "clean_fraction=0.127 below 0.5",
+    "clean_fraction": 0.127
+  },
+  {
+    "date": "2018-12-21",
+    "status": "skipped",
+    "reason": "clean_fraction=0.251 below 0.5",
+    "clean_fraction": 0.251
+  },
+  {
+    "date": "2018-12-01",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-12-01",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-11-26",
+    "status": "skipped",
+    "reason": "clean_fraction=0.452 below 0.5",
+    "clean_fraction": 0.452
+  },
+  {
+    "date": "2018-11-26",
+    "status": "kept",
+    "clean_fraction": 0.998
+  },
+  {
+    "date": "2018-11-21",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-11-16",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-11-16",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-11-06",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-11-01",
+    "status": "kept",
+    "clean_fraction": 0.986
+  },
+  {
+    "date": "2018-11-01",
+    "status": "kept",
+    "clean_fraction": 0.986
+  },
+  {
+    "date": "2018-10-27",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-10-27",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-09-27",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-09-27",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-09-17",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-09-17",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-09-02",
+    "status": "skipped",
+    "reason": "clean_fraction=0.000 below 0.5",
+    "clean_fraction": 0.0
+  },
+  {
+    "date": "2018-09-02",
+    "status": "skipped",
+    "reason": "clean_fraction=0.000 below 0.5",
+    "clean_fraction": 0.0
+  },
+  {
+    "date": "2018-08-28",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-08-28",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-08-23",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-08-23",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-08-18",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-08-18",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-08-03",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-07-24",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-07-24",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-07-19",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-07-19",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-07-14",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-07-14",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-07-04",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-07-04",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-06-29",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-06-29",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-06-24",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-06-24",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-06-14",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-06-14",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-06-09",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-06-09",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-05-30",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-05-30",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-05-15",
+    "status": "skipped",
+    "reason": "clean_fraction=0.483 below 0.5",
+    "clean_fraction": 0.483
+  },
+  {
+    "date": "2018-05-10",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-05-10",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-05-05",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-05-05",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-04-20",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-04-20",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-04-15",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-04-15",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-04-10",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-04-10",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-04-05",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-03-21",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-03-21",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-03-16",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-03-16",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-03-06",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-03-06",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-02-09",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-02-04",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-02-04",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-01-30",
+    "status": "skipped",
+    "reason": "clean_fraction=0.000 below 0.5",
+    "clean_fraction": 0.0
+  },
+  {
+    "date": "2018-01-20",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-01-20",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-01-15",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2018-01-15",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2017-12-11",
+    "status": "kept",
+    "clean_fraction": 0.821
+  },
+  {
+    "date": "2017-12-01",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2017-12-01",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2017-11-21",
+    "status": "skipped",
+    "reason": "clean_fraction=0.000 below 0.5",
+    "clean_fraction": 0.0
+  },
+  {
+    "date": "2017-10-22",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2017-10-07",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2017-10-07",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2017-10-02",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2017-10-02",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2017-08-03",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2017-08-03",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2017-07-19",
+    "status": "skipped",
+    "reason": "clean_fraction=0.416 below 0.5",
+    "clean_fraction": 0.416
+  },
+  {
+    "date": "2017-07-19",
+    "status": "skipped",
+    "reason": "clean_fraction=0.411 below 0.5",
+    "clean_fraction": 0.411
+  },
+  {
+    "date": "2017-07-14",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2017-07-14",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2017-06-29",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2017-06-29",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2017-04-30",
+    "status": "kept",
+    "clean_fraction": 0.773
+  },
+  {
+    "date": "2017-03-21",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2017-03-21",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2017-03-01",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2017-03-01",
+    "status": "kept",
+    "clean_fraction": 1.0
+  },
+  {
+    "date": "2017-01-30",
+    "status": "kept",
+    "clean_fraction": 1.0
+  }
+]
